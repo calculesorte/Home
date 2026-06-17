@@ -6,54 +6,43 @@
     <title>CalculeSorte</title>
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div class="calculadora-container" id="calculadora">
+        <h2>Calculadora Astral da Sorte</h2>
+        
+        <div class="campo">
+            <label>Seu Nome Completo:</label>
+            <input type="text" id="nome" placeholder="Digite seu nome">
+        </div>
+        
+        <div class="campo-data">
+            <label>Data de Nascimento:</label>
+            <input type="number" id="dia" placeholder="Dia">
+            <input type="number" id="mes" placeholder="Mês">
+            <input type="number" id="ano" placeholder="Ano">
+        </div>
+
+        <button id="btn-gerar" onclick="gerarCalculoGratis()">Gerar Número da Sorte (Grátis)</button>
+
+        <div id="resultado-gratis" class="resultado-box" style="display: none;">
+            <p>Seu número místico da Mega-Sena: <strong class="numero-sorte">42</strong></p>
+        </div>
+
+        <div id="area-premium" class="premium-box" style="display: none;">
+            <h3>Quer o mapa completo do seu destino?</h3>
+            <p>Descubra seu Anjo, Dias de Sorte para Negócios, Amor e +5 números quentes.</p>
+            <a href="https://mpago.la/1CuW65s" target="_blank" style="text-decoration: none;">
+                <button class="btn-pix">Liberar Revelação Completa por R$ 4,90 (PIX)</button>
+            </a>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
     <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('sw.js');
         }
     </script>
-</head>
-<body>
-    <div class="container">
-        <img src="logo.png" id="logo-principal" style="width: 100%; max-width: 300px;">
-
-        <input type="text" id="nome" placeholder="Seu nome completo">
-        <input type="text" id="whatsapp" placeholder="WhatsApp">
-        
-        <div class="data-nascimento">
-            <select id="dia">
-                <option value="">Dia</option>
-                <script>
-                    for(let i=1; i<=31; i++) document.write(`<option value="${i}">${i}</option>`);
-                </script>
-            </select>
-            <select id="mes">
-                <option value="">Mês</option>
-                <script>
-                    for(let i=1; i<=12; i++) document.write(`<option value="${i}">${i}</option>`);
-                </script>
-            </select>
-            <select id="ano">
-                <option value="">Ano</option>
-                <script>
-                    for(let i=2026; i>=1940; i--) document.write(`<option value="${i}">${i}</option>`);
-                </script>
-            </select>
-        </div>
-        
-        <button id="btn-calc" onclick="executarCalculo()">CALCULAR MINHA SORTE</button>
-
-        <div style="text-align: center; margin-top: 15px;">
-            <a href="metodologia.html" style="color: #ffd43b; text-decoration: none; font-size: 0.9rem; font-family: sans-serif; border-bottom: 1px solid #ffd43b;">
-                Entenda nossa metodologia
-            </a>
-        </div>
-
-        <div id="area-vip" style="display:none; margin-top: 20px;">
-            <a href="https://mpago.la/1CuW65s" target="_blank" style="padding: 15px; background: green; color: white; display: block; text-align: center; text-decoration: none; border-radius: 5px; font-weight: bold;">
-                QUERO RELATÓRIO COMPLETO - R$ 4,90
-            </a>
-        </div>
-    </div>
-    <script src="script.js"></script>
 </body>
 </html>

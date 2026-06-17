@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calcule Sorte</title>
+  <title>Calcule Sorte - App</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="header-mistic">
-    <h1 class="titulo-principal">CALCULE <span>SORTE</span></h1>
+  
+  <header class="header-app">
+    <img src="logo.png" alt="Calcule Sorte" class="logo-topo">
   </header>
 
   <main class="conteudo-principal">
-    <section class="painel-calculo">
+    <section class="painel-app painel-azul" id="painel-entrada">
       <div class="painel-header">🔮 Calcule Agora Mesmo</div>
       <div class="painel-body">
         <input type="text" id="nome" placeholder="Seu nome">
@@ -26,7 +27,7 @@
       </div>
     </section>
 
-    <section class="painel-resultado" id="painel-resultado" style="display: none;">
+    <section class="painel-app painel-verde" id="painel-resultado" style="display: none;">
       <div class="painel-header">📊 Perfil Gerado: <span id="nome-perfil">---</span></div>
       <div class="painel-body">
         <div class="status-perfil">
@@ -44,6 +45,7 @@
       </div>
     </section>
   </main>
+
   <script src="script.js"></script>
 </body>
 </html>

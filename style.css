@@ -1,75 +1,32 @@
-body {
-  background-color: #0b0c10;
-  color: #c5a880;
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 20px;
-}
+body { background: radial-gradient(circle at center, #071324 0%, #02070f 100%); color: #ffffff; font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; padding: 0; box-sizing: border-box; }
 
-.calculadora-container {
-  background: linear-gradient(145deg, #1f2833, #151a21);
-  border: 2px solid #c5a880;
-  border-radius: 15px;
-  padding: 30px;
-  max-width: 400px;
-  margin: 50px auto;
-  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.7);
-}
+.header-mistic { text-align: center; padding: 40px 20px; }
+.titulo-principal { font-size: 3rem; font-weight: 900; color: #fff; text-shadow: 0 0 10px rgba(255,255,255,0.3); margin: 0; line-height: 1; }
+.titulo-principal span { color: #e6b800; background: linear-gradient(to bottom, #fff3a8 0%, #ffd700 50%, #b8860b 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.faixa-subtitulo { background: linear-gradient(90deg, transparent, #b8860b, transparent); color: #000; font-weight: bold; font-size: 0.8rem; padding: 5px 20px; display: inline-block; margin-top: 10px; border-radius: 3px; }
 
-.campo, .campo-data { margin-bottom: 15px; }
+.conteudo-principal { display: flex; justify-content: center; gap: 30px; max-width: 1000px; margin: 0 auto; padding: 20px; flex-wrap: wrap; }
 
-input {
-  width: 100%;
-  background-color: #0b0c10;
-  border: 1px solid #45f3ff;
-  color: white;
-  padding: 10px;
-  border-radius: 5px;
-  box-sizing: border-box;
-}
+.painel-calculo, .painel-resultado { background: rgba(10, 25, 47, 0.85); border: 2px solid #b8860b; box-shadow: 0 0 20px rgba(184, 134, 11, 0.2); border-radius: 12px; width: 450px; overflow: hidden; }
+.painel-header { background: linear-gradient(90deg, #102a45, #1b4573); padding: 15px; font-weight: bold; border-bottom: 1px solid #b8860b; }
+.painel-body { padding: 25px; }
 
-#btn-gerar {
-  background: linear-gradient(90deg, #c5a880, #e6c697);
-  color: #0b0c10;
-  font-weight: bold;
-  border: none;
-  padding: 15px;
-  width: 100%;
-  border-radius: 8px;
-  cursor: pointer;
-}
+input[type="text"], select { width: 100%; padding: 12px; margin-bottom: 15px; background-color: #050d1a; border: 1px solid #1b4573; border-radius: 6px; color: white; box-sizing: border-box; }
+.campos-data { display: flex; gap: 10px; margin-bottom: 20px; }
 
-.resultado-box {
-  background: #1e293b;
-  padding: 15px;
-  margin: 20px 0;
-  border-left: 5px solid #ffd43b;
-  display: none;
-}
+#btn-gerar { background: linear-gradient(to bottom, #ffd700, #ff8c00); border: none; color: #000; font-weight: bold; padding: 15px; width: 100%; border-radius: 6px; cursor: pointer; font-size: 1rem; box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4); transition: transform 0.2s; }
+#btn-gerar:hover { transform: scale(1.02); }
+#btn-gerar:disabled { background: #333; color: #777; cursor: not-allowed; }
 
-.premium-box {
-  background: #064e3b;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  display: none;
-  color: white;
-}
+.status-perfil { display: flex; justify-content: space-between; margin-bottom: 25px; }
+.status-box { border: 1px solid #b8860b; padding: 10px; border-radius: 8px; text-align: center; font-size: 0.8rem; width: 28%; }
+.status-box span { font-size: 1.2rem; font-weight: bold; display: block; margin-top: 5px; }
+.prosperidade span { color: #4caf50; }
+.amor span { color: #e91e63; }
+.sucesso span { color: #2196f3; }
 
-.btn-pix {
-  background-color: #25d366;
-  color: white;
-  border: none;
-  padding: 15px;
-  width: 100%;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  animation: pulsar 2s infinite;
-}
-
-@keyframes pulsar {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); box-shadow: 0 0 15px #25d366; }
-  100% { transform: scale(1); }
-}
+.numeros-sorte-container { text-align: center; background: rgba(0,0,0,0.4); padding: 20px; border-radius: 8px; }
+.numeros-reais { font-size: 1.8rem; font-weight: bold; color: #45f3ff; margin: 15px 0; }
+.btn-pix { background: #25d366; color: white; border: none; padding: 15px; width: 100%; border-radius: 6px; font-weight: bold; cursor: pointer; animation: pulsar 2s infinite; }
+@keyframes pulsar { 0% { transform: scale(1); } 50% { transform: scale(1.05); box-shadow: 0 0 15px #25d366; } 100% { transform: scale(1); } }
+footer { text-align: center; padding: 40px; font-size: 0.8rem; color: #555; }

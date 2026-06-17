@@ -8,32 +8,39 @@
 </head>
 <body>
     <div class="container">
-        <img src="logo.png" id="logo-principal" alt="Logo Calcule Sorte">
+        <img src="logo.png" id="logo-principal" style="width: 100%; max-width: 300px;">
 
-        <input type="text" id="nome" placeholder="Seu nome completo" required>
-        <input type="text" id="whatsapp" placeholder="WhatsApp" required>
+        <input type="text" id="nome" placeholder="Seu nome completo">
+        <input type="text" id="whatsapp" placeholder="WhatsApp">
         
         <div class="data-nascimento">
-            <select id="dia" required>
+            <select id="dia">
                 <option value="">Dia</option>
+                <script>
+                    for(let i=1; i<=31; i++) document.write(`<option value="${i}">${i}</option>`);
+                </script>
             </select>
-            <select id="mes" required>
+            <select id="mes">
                 <option value="">Mês</option>
+                <script>
+                    for(let i=1; i<=12; i++) document.write(`<option value="${i}">${i}</option>`);
+                </script>
             </select>
-            <select id="ano" required>
+            <select id="ano">
                 <option value="">Ano</option>
+                <script>
+                    for(let i=2026; i>=1940; i--) document.write(`<option value="${i}">${i}</option>`);
+                </script>
             </select>
         </div>
         
         <button id="btn-calc" onclick="executarCalculo()">CALCULAR MINHA SORTE</button>
-        
         <div id="area-vip" style="display:none; margin-top: 20px;">
             <a href="https://mpago.la/1CuW65s" target="_blank" style="padding: 15px; background: green; color: white; display: block; text-align: center; text-decoration: none; border-radius: 5px; font-weight: bold;">
-                QUERO RELATÓRIO COMPLETO E 5 NÚMEROS EXTRA - R$ 4,90
+                QUERO RELATÓRIO COMPLETO - R$ 4,90
             </a>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>

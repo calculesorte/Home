@@ -1,17 +1,75 @@
-/* Teste de Desbloqueio */
-input, select {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    pointer-events: auto !important; /* Isso força o clique a funcionar */
-    opacity: 1 !important;           /* Isso força a cor normal */
+body {
+  background-color: #0b0c10;
+  color: #c5a880;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 20px;
 }
 
-button {
-    width: 100%;
-    padding: 15px;
-    background: gold;
-    border: none;
-    cursor: pointer;
+.calculadora-container {
+  background: linear-gradient(145deg, #1f2833, #151a21);
+  border: 2px solid #c5a880;
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 400px;
+  margin: 50px auto;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+.campo, .campo-data { margin-bottom: 15px; }
+
+input {
+  width: 100%;
+  background-color: #0b0c10;
+  border: 1px solid #45f3ff;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+#btn-gerar {
+  background: linear-gradient(90deg, #c5a880, #e6c697);
+  color: #0b0c10;
+  font-weight: bold;
+  border: none;
+  padding: 15px;
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.resultado-box {
+  background: #1e293b;
+  padding: 15px;
+  margin: 20px 0;
+  border-left: 5px solid #ffd43b;
+  display: none;
+}
+
+.premium-box {
+  background: #064e3b;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  display: none;
+  color: white;
+}
+
+.btn-pix {
+  background-color: #25d366;
+  color: white;
+  border: none;
+  padding: 15px;
+  width: 100%;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  animation: pulsar 2s infinite;
+}
+
+@keyframes pulsar {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); box-shadow: 0 0 15px #25d366; }
+  100% { transform: scale(1); }
 }

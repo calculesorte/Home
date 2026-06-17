@@ -3,7 +3,21 @@ body { background: radial-gradient(circle at center, #071324 0%, #02070f 100%); 
 .titulo-principal { font-size: 2.5rem; text-shadow: 0 0 20px #ffd700, 0 0 40px #ff8c00; }
 .titulo-principal span { color: #ffd700; }
 
-.conteudo-principal { display: flex; flex-direction: column; align-items: center; max-width: 450px; margin: 0 auto; }
+/* Layout Empilhado (App Style) */
+.conteudo-principal {
+  display: flex;
+  flex-direction: column; /* Isso faz as janelas ficarem uma embaixo da outra */
+  align-items: center;    /* Centraliza tudo na tela */
+  max-width: 450px;       /* Mantém a largura ideal de celular */
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Garante que os painéis ocupem a largura total do container */
+.painel-calculo, .painel-resultado {
+  width: 100%;
+  margin-bottom: 20px;
+}
 
 .painel-calculo, .painel-resultado { 
   background: rgba(10, 25, 47, 0.95); border: 2px solid #ffd700; 

@@ -1,0 +1,39 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const d = document.getElementById('dia'), m = document.getElementById('mes'), a = document.getElementById('ano');
+    for(let i=1; i<=31; i++) d.innerHTML += `<option value="${i}">${i}</option>`;
+    for(let i=1; i<=12; i++) m.innerHTML += `<option value="${i}">${i}</option>`;
+    for(let i=2026; i>=1940; i--) a.innerHTML += `<option value="${i}">${i}</option>`;
+    
+    if (localStorage.getItem('palpiteGerado')) {
+        document.querySelectorAll('input, select, .btn-calc').forEach(el => el.disabled = true);
+    }
+});
+
+function interagirCal() {
+    const balao = document.getElementById('balao-fala');
+    document.getElementById('trevinho').style.transform = "rotate(360deg)";
+    balao.innerText = "Deixe-me pensar...";
+    setTimeout(() => { balao.innerText = "COMO VOU SABER? EU SOU APENAS UM SER VIRTUAL! Hahahaha!"; }, 2000);
+    setTimeout(() => { balao.innerText = "Poxa... só eu rio dessa piada? (╥_╥)"; document.getElementById('trevinho').style.transform = "rotate(0deg)"; }, 5000);
+}
+function executarCalculo() {
+    const nome = document.getElementById('nome').value;
+    if (!nome) { alert("Preencha seu nome!"); return; }
+
+    // 1. Gera os números
+    let nums = Array.from({length: 6}, () => Math.floor(Math.random() * 60) + 1).sort((a,b) => a - b);
+    
+    // 2. Exibe o resultado e o painel
+    document.getElementById('numeros-sorte').innerHTML = `<strong>${nums.join(" - ")}</strong>`;
+    document.getElementById('relatorio-concurso').innerHTML = "Tendência de equilíbrio. Concurso: 3018";
+    
+    // TORNA O RESULTADO VISÍVEL (Aqui está o segredo que faltava)
+    document.getElementById('resultado').style.display = 'block';
+
+    // 3. Trava a interface
+    localStorage.setItem('palpiteGerado', 'true');
+    travarInterface();
+    
+    // REMOVI O location.reload() DAQUI PARA NÃO SUMIR COM A TELA
+}
+

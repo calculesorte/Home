@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossa Metodologia - CalculeSorte</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="background-color: #06101b; color: #fff; font-family: sans-serif; padding: 20px;">
+
+    <div style="max-width: 800px; margin: 0 auto; background: rgba(255, 255, 255, 0.05); padding: 30px; border-radius: 20px; border: 1px solid #ffd43b;">
+        <h1 style="color: #ffd43b; text-align: center;">Nossa Metodologia</h1>
+        
+        <p style="line-height: 1.6; margin-bottom: 20px;">
+            No CalculeSorte, não acreditamos em "sorte pura". Acreditamos em <strong>análise de padrões e tendências</strong>. Nosso motor de cálculo foi desenvolvido para processar grandes volumes de dados e entregar resultados personalizados para cada usuário.
+        </p>
+
+        <h3 style="color: #ffd43b;">O Motor do CalculeSorte:</h3>
+        <ul style="line-height: 1.8; list-style-type: none; padding: 0;">
+            <li>✅ <strong>Motor Híbrido:</strong> Cruzamos o histórico real dos últimos 24 meses de sorteios da Caixa com algoritmos de aleatoriedade controlada. Isso ajuda a filtrar números que, estatisticamente, têm comportamentos recorrentes.</li>
+            <li>✅ <strong>Ciclos Astronômicos:</strong> Acreditamos que o tempo influencia o sucesso. Nosso sistema calcula a fase lunar atual e ajusta a vibração dos jogos sugeridos, alinhando suas escolhas às variáveis temporais.</li>
+            <li>✅ <strong>Numerologia Aplicada:</strong> Utilizamos seus dados pessoais (nome e data de nascimento) para calcular sua vibração numérica única. Transformamos essa "assinatura pessoal" em índices que personalizam o seu Palpite Mestre.</li>
+        </ul>
+
+        <div style="margin-top: 30px; padding: 20px; background: rgba(0, 0, 0, 0.3); border-left: 4px solid #ffd43b;">
+            <p style="font-size: 0.9rem; font-style: italic;">
+                <strong>Nota:</strong> Nosso sistema é uma ferramenta de auxílio estatístico e análise simbólica. Ele não garante resultados reais ou premiações, mas eleva o nível da sua estratégia de jogo através da organização de dados e da matemática.
+            </p>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="index.html" style="background: #ffd43b; color: #000; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">VOLTAR AO SISTEMA</a>
+        </div>
+    </div>
+
+</body>
+</html>

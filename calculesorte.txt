@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>CalculeSorte - Sistema Inteligente</title>
+</head>
+<body>
+    <div class="container">
+        <div id="palco-cal">
+            <img src="logo.png" id="logo-principal">
+            <img id="trevinho" src="https://cdn-icons-png.flaticon.com/512/2953/2953372.png" onclick="interagirCal()">
+            <p id="balao-fala">Clique em mim para conversar!</p>
+        </div>
+
+        <input type="text" id="nome" placeholder="Seu Nome">
+        <input type="text" id="whatsapp" placeholder="WhatsApp">
+        <div class="datas">
+            <select id="dia"></select> <select id="mes"></select> <select id="ano"></select>
+        </div>
+        
+        <button class="btn-calc" onclick="executarCalculo()">GERAR PROJEÇÃO</button>
+
+        <div id="resultado" style="display:none;">
+            <p>Seus Números da Sorte:</p>
+            <div id="numeros-sorte"></div>
+            <div id="relatorio-concurso"></div>
+            <a href="#" onclick="localStorage.removeItem('palpiteGerado'); location.reload();" class="btn-luxo btn-rodada">PRÓXIMA RODADA</a>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "CalculeSorte - Seu Palpite Mestre",
+  "short_name": "CalculeSorte",
+  "description": "Metodologia estatística e numerológica para seus jogos.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#06101b",
+  "theme_color": "#ffd43b",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

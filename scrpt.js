@@ -4,19 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
     for(let i=1; i<=12; i++) m.innerHTML += `<option value="${i}">${i}</option>`;
     for(let i=2026; i>=1940; i--) a.innerHTML += `<option value="${i}">${i}</option>`;
     
-    // Recupera se já houve cálculo
     if (localStorage.getItem('palpiteGerado')) {
         document.getElementById('numeros-sorte').innerHTML = localStorage.getItem('numerosSalvos');
         document.getElementById('resultado').style.display = 'block';
         travarInterface();
     }
 });
-
-function interagirCal() {
-    const balao = document.getElementById('balao-fala');
-    balao.innerText = "Calculando energias...";
-    setTimeout(() => { balao.innerText = "Sistema pronto para análise!"; }, 2000);
-}
 
 function executarCalculo() {
     const nome = document.getElementById('nome').value;

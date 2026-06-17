@@ -1,1 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>CalculeSorte</title>
+</head>
+<body>
+    <div class="container">
+        <img src="logo.png" id="logo-principal" style="width: 100%; max-width: 300px;">
 
+        <input type="text" id="nome" placeholder="Seu nome completo">
+        <input type="text" id="whatsapp" placeholder="WhatsApp">
+        
+        <div class="data-nascimento">
+            <select id="dia"><option value="">Dia</option></select>
+            <select id="mes"><option value="">Mês</option></select>
+            <select id="ano"><option value="">Ano</option></select>
+        </div>
+        
+        <button id="btn-calc" onclick="executarCalculo()">CALCULAR MINHA SORTE</button>
+        
+        <div id="area-vip" style="display:none; margin-top: 20px;">
+            <a href="https://mpago.la/1CuW65s" target="_blank" style="padding: 15px; background: green; color: white; display: block; text-align: center; text-decoration: none; border-radius: 5px; font-weight: bold;">
+                QUERO RELATÓRIO COMPLETO E 5 NÚMEROS EXTRA - R$ 4,90
+            </a>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

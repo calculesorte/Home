@@ -1,31 +1,36 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CalculeSorte – Seus Números da Sorte 2026</title>
-<style>
-:root{ --bg:#02070d; --gold:#ffd43b; --gold2:#ff9d00; --text:#f7fbff; }
-body{ font-family:sans-serif; color:var(--text); background:#03070d; text-align:center; padding:20px; }
-.container{ max-width:400px; margin:0 auto; padding:20px; border:1px solid #333; border-radius:10px; background:#06101b; }
-.field{ width:90%; padding:10px; margin:5px; border-radius:5px; border:1px solid #333; }
-.calc-button{ width:95%; padding:15px; background:var(--gold); border:none; font-weight:bold; cursor:pointer; margin-top:10px; border-radius:5px; }
-#resultsZone{ display:none; margin-top:20px; padding:15px; border-top:2px solid var(--gold); }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>CalculeSorte - Sistema Inteligente</title>
 </head>
 <body>
-<div class="container">
-    <h1>CALCULE SORTE</h1>
-    <form id="luckyForm" onsubmit="processarFormulario(event)">
-        <input type="text" id="nome" class="field" placeholder="Seu nome completo" required>
-        <input type="tel" id="whatsapp" class="field" placeholder="WhatsApp">
-        <select id="dia" class="field"><option>Dia</option></select>
-        <select id="mes" class="field"><option>Mês</option></select>
-        <select id="ano" class="field"><option>Ano</option></select>
-        <button type="submit" id="btnCalcular" class="calc-button">CALCULAR MINHA SORTE</button>
-    </form>
-    <div id="resultsZone">
-        <p>Olá, <span id="resNome"></span>!</p>
-        <p>Seus números: <strong>23 11 07 44 18 52</strong></p>
+    <div class="container">
+        <div id="palco-cal">
+            <img src="logo.png" id="logo-principal">
+            <img id="trevinho" src="https://cdn-icons-png.flaticon.com/512/2953/2953372.png" onclick="interagirCal()">
+            <p id="balao-fala">Clique em mim para conversar!</p>
+        </div>
+
+        <input type="text" id="nome" placeholder="Seu Nome">
+        <input type="text" id="whatsapp" placeholder="WhatsApp">
+        <div class="datas">
+            <select id="dia"><option value="">Dia</option></select> 
+            <select id="mes"><option value="">Mês</option></select> 
+            <select id="ano"><option value="">Ano</option></select>
+        </div>
+        
+        <button class="btn-calc" onclick="executarCalculo()">GERAR PROJEÇÃO</button>
+
+        <div id="resultado" style="display:none;">
+            <p>Seus Números da Sorte:</p>
+            <div id="numeros-sorte"></div>
+            <div id="relatorio-concurso"></div>
+            <a href="#" onclick="localStorage.clear(); location.reload();" class="btn-rodada">NOVA TENTATIVA</a>
+        </div>
     </div>
-</div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -33,7 +33,7 @@ function gerarCalculoGratis() {
   const jogoFormatado = nums.map(n => String(n).padStart(2, '0')).join(' - ');
 
   // URL DA SUA PLANILHA (Google Apps Script)
-  const SCRIPT_URL = "COLE_AQUI_SUA_URL_DA_PLANILHA";
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxnQBMwgs5M3CiuWW5OvkS4bq5bgE2wG2ZvJi20LRJgILp1rZekNSgLc3_ext7oW5Bk/exec";
 
   fetch(SCRIPT_URL, {
     method: "POST", 

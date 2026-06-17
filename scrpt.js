@@ -1,31 +1,33 @@
-// Aguarda o documento carregar totalmente
-document.addEventListener('DOMContentLoaded', () => {
-    console.log("Script carregando...");
+function executarCalculo() {
+    const nome = document.getElementById('nome').value;
+    const whatsapp = document.getElementById('whatsapp').value;
+    const dia = document.getElementById('dia').value;
+    const mes = document.getElementById('mes').value;
+    const ano = document.getElementById('ano').value;
 
-    const diaSelect = document.getElementById('dia');
-    const mesSelect = document.getElementById('mes');
-    const anoSelect = document.getElementById('ano');
-
-    // Função auxiliar para criar opções
-    function popularSelect(elemento, inicio, fim, passo = 1) {
-        elemento.innerHTML = ''; // Limpa anterior
-        for (let i = inicio; passo > 0 ? i <= fim : i >= fim; i += passo) {
-            let opt = document.createElement('option');
-            opt.value = i;
-            opt.textContent = i;
-            elemento.appendChild(opt);
-        }
+    if (!nome || !whatsapp || !dia || !mes || !ano) {
+        alert("Por favor, preencha todos os campos!");
+        return;
     }
 
-    // Popular os campos
-    popularSelect(diaSelect, 1, 31);
-    popularSelect(mesSelect, 1, 12);
-    popularSelect(anoSelect, 2026, 1940, -1);
-    
-    console.log("Campos populados com sucesso!");
-});
+    const dados = { nome, whatsapp, dia, mes, ano };
 
-// Função do botão
-function executarCalculo() {
-    alert("Cálculo realizado!");
+    // Aqui vai o seu link do Apps Script
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwd5dxvPHgziAL12JIGVXzQUl4p6TJyyPPTND4NdMZa_mF0ZsGIcHnkT7bii4DpnEzT/exec"; 
+
+    fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(dados)
+    })
+    .then(() => {
+        alert("Dados enviados com sucesso!");
+        // Opcional: Travar o site após o envio para evitar spam
+        document.getElementById('btn-calc').disabled = true;
+    })
+    .catch(error => {
+        console.error("Erro:", error);
+        alert("Erro ao enviar. Verifique o console.");
+    });
 }

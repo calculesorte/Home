@@ -31,7 +31,7 @@ function gerarCalculoGratis() {
   const numeroSorteado = String(Math.floor(Math.random() * 60) + 1).padStart(2, '0');
 
   // 5. Envio para Planilha (Google Sheets)
-  const SCRIPT_URL = "COLE_SUA_URL_DO_GOOGLE_APPS_SCRIPT_AQUI";
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxnQBMwgs5M3CiuWW5OvkS4bq5bgE2wG2ZvJi20LRJgILp1rZekNSgLc3_ext7oW5Bk/exec";
   const dados = { nome, dia, mes, ano, resultado: numeroSorteado };
 
   fetch(SCRIPT_URL, {

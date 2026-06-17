@@ -1,3 +1,17 @@
-.container { max-width: 400px; margin: 50px auto; text-align: center; }
-input, select { width: 100%; padding: 10px; margin: 5px 0; }
-button { width: 100%; padding: 15px; background: gold; border: none; cursor: pointer; }
+/* Teste de Desbloqueio */
+input, select {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    pointer-events: auto !important; /* Isso força o clique a funcionar */
+    opacity: 1 !important;           /* Isso força a cor normal */
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    background: gold;
+    border: none;
+    cursor: pointer;
+}

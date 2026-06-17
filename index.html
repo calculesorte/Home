@@ -1,67 +1,55 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CalculeSorte</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="manifest" href="manifest.json">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calcule Sorte - Transformando Datas em Possibilidades</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="calculadora-container" id="calculadora">
-        <img src="logo.png" alt="Logo CalculeSorte" style="width: 100%; max-width: 200px; display: block; margin: 0 auto 20px;">
-        
-        <h2>Calculadora Astral da Sorte</h2>
-        
-        <div class="campo">
-            <label>Seu Nome Completo:</label>
-            <input type="text" id="nome" placeholder="Digite seu nome">
-        </div>
 
-        <div class="campo">
-            <label>WhatsApp:</label>
-            <input type="text" id="whatsapp" placeholder="(00) 90000-0000">
-        </div>
-        
-        <div class="campo-data">
-            <label>Data de Nascimento:</label>
-            <div style="display: flex; gap: 5px;">
-                <select id="dia" style="flex:1; padding: 10px; background: #0b0c10; color: white; border: 1px solid #45f3ff;">
-                    <option value="">Dia</option>
-                    <script>for(let i=1; i<=31; i++) document.write(`<option value="${i}">${i}</option>`);</script>
-                </select>
-                <select id="mes" style="flex:1; padding: 10px; background: #0b0c10; color: white; border: 1px solid #45f3ff;">
-                    <option value="">Mês</option>
-                    <script>for(let i=1; i<=12; i++) document.write(`<option value="${i}">${i}</option>`);</script>
-                </select>
-                <select id="ano" style="flex:1; padding: 10px; background: #0b0c10; color: white; border: 1px solid #45f3ff;">
-                    <option value="">Ano</option>
-                    <script>for(let i=2026; i>=1940; i--) document.write(`<option value="${i}">${i}</option>`);</script>
-                </select>
-            </div>
-        </div>
-
-        <button id="btn-gerar" onclick="gerarCalculoGratis()">Gerar Número da Sorte (Grátis)</button>
-
-        <div id="resultado-gratis" class="resultado-box" style="display: none;">
-    <p>Seus números da sorte (Mega-Sena):</p>
-    <p><strong class="numero-sorte" style="font-size: 1.5rem; color: #45f3ff;">00 - 00 - 00 - 00 - 00 - 00</strong></p>
-</div>
-
-        <div id="area-premium" class="premium-box" style="display: none;">
-            <h3>Quer o mapa completo do seu destino?</h3>
-            <p>Descubra seu Anjo, Dias de Sorte para Negócios, Amor e +5 números quentes.</p>
-            <a href="https://mpago.la/1CuW65s" target="_blank" style="text-decoration: none;">
-                <button class="btn-pix">Liberar Revelação Completa por R$ 4,90 (PIX)</button>
-            </a>
-        </div>
+  <header class="header-mistic">
+    <div class="logo-container">
+      <h1 class="titulo-principal">CALCULE SORTE</h1>
     </div>
-    
-    <script src="script.js"></script>
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js');
-        }
-    </script>
+  </header>
+
+  <main class="conteudo-principal">
+    <section class="painel-calculo">
+      <div class="painel-header">🔮 Calcule Agora Mesmo</div>
+      <div class="painel-body">
+        <input type="text" id="nome" placeholder="Seu nome">
+        <input type="text" id="whatsapp" placeholder="WhatsApp">
+        <div class="campos-data">
+          <select id="dia"><option value="">Dia</option><script>for(let i=1;i<=31;i++) document.write(`<option value="${i}">${i}</option>`);</script></select>
+          <select id="mes"><option value="">Mês</option><script>for(let i=1;i<=12;i++) document.write(`<option value="${i}">${i}</option>`);</script></select>
+          <select id="ano"><option value="">Ano</option><script>for(let i=2026;i>=1920;i--) document.write(`<option value="${i}">${i}</option>`);</script></select>
+        </div>
+        <button id="btn-gerar" onclick="gerarCalculoGratis()">⚡ CALCULAR MINHA SORTE</button>
+      </div>
+    </section>
+
+    <section class="painel-resultado" id="painel-resultado" style="display: none;">
+      <div class="painel-header">📊 Perfil Gerado: <span id="nome-perfil">---</span></div>
+      <div class="painel-body">
+        <div class="status-perfil">
+          <div class="status-box">Prosperidade <br>94%</div>
+          <div class="status-box">Amor <br>88%</div>
+          <div class="status-box">Sucesso <br>91%</div>
+        </div>
+        <div class="numeros-sorte-container">
+          <h3>🔒 Seus Números da Sorte</h3>
+          <div class="numeros-reais" id="area-numeros">
+            <span class="num-final" id="resultado-final">00 - 00 - 00 - 00 - 00 - 00</span>
+          </div>
+          <a href="https://mpago.la/1CuW65s" target="_blank">
+            <button class="btn-pix" style="margin-top: 20px;">Liberar Revelação Completa (PIX)</button>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>

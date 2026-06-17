@@ -22,7 +22,7 @@ function executarCalculo() {
         resultado: "Calculado" // Adicionei este campo pois seu Apps Script espera
     };
 
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwd5dxvPHgziAL12JIGVXzQUl4p6TJyyPPTND4NdMZa_mF0ZsGIcHnkT7bii4DpnEzT/exec";
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxnQBMwgs5M3CiuWW5OvkS4bq5bgE2wG2ZvJi20LRJgILp1rZekNSgLc3_ext7oW5Bk/exec";
 
     // 4. Envia para o Google Sheets
     fetch(SCRIPT_URL, {

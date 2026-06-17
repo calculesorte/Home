@@ -17,12 +17,28 @@
             <label>Seu Nome Completo:</label>
             <input type="text" id="nome" placeholder="Digite seu nome">
         </div>
+
+        <div class="campo">
+            <label>WhatsApp:</label>
+            <input type="text" id="whatsapp" placeholder="(00) 90000-0000">
+        </div>
         
         <div class="campo-data">
             <label>Data de Nascimento:</label>
-            <input type="number" id="dia" placeholder="Dia">
-            <input type="number" id="mes" placeholder="Mês">
-            <input type="number" id="ano" placeholder="Ano">
+            <div style="display: flex; gap: 5px;">
+                <select id="dia" style="flex:1; padding: 10px; background: #0b0c10; color: white; border: 1px solid #45f3ff;">
+                    <option value="">Dia</option>
+                    <script>for(let i=1; i<=31; i++) document.write(`<option value="${i}">${i}</option>`);</script>
+                </select>
+                <select id="mes" style="flex:1; padding: 10px; background: #0b0c10; color: white; border: 1px solid #45f3ff;">
+                    <option value="">Mês</option>
+                    <script>for(let i=1; i<=12; i++) document.write(`<option value="${i}">${i}</option>`);</script>
+                </select>
+                <select id="ano" style="flex:1; padding: 10px; background: #0b0c10; color: white; border: 1px solid #45f3ff;">
+                    <option value="">Ano</option>
+                    <script>for(let i=2026; i>=1940; i--) document.write(`<option value="${i}">${i}</option>`);</script>
+                </select>
+            </div>
         </div>
 
         <button id="btn-gerar" onclick="gerarCalculoGratis()">Gerar Número da Sorte (Grátis)</button>

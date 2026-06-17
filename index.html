@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calcule Sorte - App</title>
+  <title>Calcule Sorte</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  
- <header class="header-mistic">
-  <h1 class="titulo-principal">CALCULE <span>SORTE</span></h1>
-  <img src="logo.png" alt="Logo" style="width: 100%; max-width: 150px; display: block; margin: 15px auto;">
-</header> 
- 
+
+  <header class="header-app">
+    <img src="logo.png" alt="Logo" class="logo-topo">
+    <h1 class="titulo-app">CALCULE SORTE</h1>
+  </header>
+
   <main class="conteudo-principal">
+    
     <section class="painel-app painel-azul" id="painel-entrada">
       <div class="painel-header">🔮 Calcule Agora Mesmo</div>
       <div class="painel-body">
@@ -31,13 +32,8 @@
     <section class="painel-app painel-verde" id="painel-resultado" style="display: none;">
       <div class="painel-header">📊 Perfil Gerado: <span id="nome-perfil">---</span></div>
       <div class="painel-body">
-        <div class="status-perfil">
-          <div class="status-box">Prosperidade <br><span style="color: #4caf50;">94%</span></div>
-          <div class="status-box">Amor <br><span style="color: #e91e63;">88%</span></div>
-          <div class="status-box">Sucesso <br><span style="color: #2196f3;">91%</span></div>
-        </div>
         <div class="numeros-sorte-container">
-          <h3>🔒 Seus Números da Sorte</h3>
+          <p>🔒 Seus Números da Sorte</p>
           <div class="numeros-reais" id="resultado-final">00 - 00 - 00 - 00 - 00 - 00</div>
           <a href="https://mpago.la/1CuW65s" target="_blank" style="text-decoration: none;">
             <button class="btn-pix">Liberar Revelação Completa (PIX)</button>
@@ -45,8 +41,8 @@
         </div>
       </div>
     </section>
-  </main>
 
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

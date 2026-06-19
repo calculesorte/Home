@@ -3,46 +3,169 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calcule Sorte</title>
+  <title>Mega-Sena · Probabilidades & Gerador</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <header class="header-app">
-    <img src="logo.png" alt="Logo" class="logo-topo">
-    <h1 class="titulo-app">CALCULE SORTE</h1>
+<div class="wrap">
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        Mega<br>Sena
+        <span>probabilidades · gerador personalizado</span>
+      </div>
+      <div class="badge" id="concurso-badge">carregando...</div>
+    </div>
+    <nav class="tabs">
+      <div class="tab active" onclick="switchTab('gerador', this)">🎲 Gerador Pessoal</div>
+      <div class="tab" onclick="switchTab('megasena', this)">Mega Sena</div>
+      <div class="tab" onclick="switchTab('codex', this)">Projeção Codex</div>
+      <div class="tab" onclick="switchTab('frequencias', this)">📊 Frequências</div>
+    </nav>
   </header>
 
-  <main class="conteudo-principal">
-    
-    <section class="painel-app painel-azul" id="painel-entrada">
-      <div class="painel-header">🔮 Calcule Agora Mesmo</div>
-      <div class="painel-body">
-        <input type="text" id="nome" placeholder="Seu nome">
-        <input type="text" id="whatsapp" placeholder="WhatsApp">
-        <div class="campos-data">
-          <select id="dia"><option value="">Dia</option><script>for(let i=1;i<=31;i++) document.write(`<option value="${i}">${i}</option>`);</script></select>
-          <select id="mes"><option value="">Mês</option><script>for(let i=1;i<=12;i++) document.write(`<option value="${i}">${i}</option>`);</script></select>
-          <select id="ano"><option value="">Ano</option><script>for(let i=2026;i>=1920;i--) document.write(`<option value="${i}">${i}</option>`);</script></select>
-        </div>
-        <button id="btn-gerar" onclick="gerarCalculoGratis()">⚡ CALCULAR MINHA SORTE</button>
+  <div id="panel-gerador" class="panel active">
+    <div class="gerador-box">
+      <div class="gerador-title">🎯 Gerador de Jogos Personalizado</div>
+      <div class="gerador-sub">
+        Insira seus dados pessoais. O gerador combina sua data de nascimento, idade e os números mais sorteados nos últimos 2 anos da Mega-Sena para criar jogos exclusivos para você.
       </div>
-    </section>
 
-    <section class="painel-app painel-verde" id="painel-resultado" style="display: none;">
-      <div class="painel-header">📊 Perfil Gerado: <span id="nome-perfil">---</span></div>
-      <div class="painel-body">
-        <div class="numeros-sorte-container">
-          <p>🔒 Seus Números da Sorte</p>
-          <div class="numeros-reais" id="resultado-final">00 - 00 - 00 - 00 - 00 - 00</div>
-          <a href="https://mpago.la/1CuW65s" target="_blank" style="text-decoration: none;">
-            <button class="btn-pix">Liberar Revelação Completa (PIX)</button>
-          </a>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Dia de nascimento</label>
+          <input type="number" id="inp-dia" min="1" max="31" placeholder="DD" />
+        </div>
+        <div class="form-group">
+          <label>Mês de nascimento</label>
+          <input type="number" id="inp-mes" min="1" max="12" placeholder="MM" />
+        </div>
+        <div class="form-group">
+          <label>Ano de nascimento</label>
+          <input type="number" id="inp-ano" min="1920" max="2026" placeholder="AAAA" style="width:110px" />
+        </div>
+        <div class="form-group">
+          <label>Quantidade de jogos</label>
+          <div class="qtd-btns">
+            <button class="qtd-btn active" data-qtd="1" onclick="setQtd(1, this)">1</button>
+            <button class="qtd-btn" data-qtd="3" onclick="setQtd(3, this)">3</button>
+            <button class="qtd-btn" data-qtd="5" onclick="setQtd(5, this)">5</button>
+          </div>
         </div>
       </div>
-    </section>
 
-  </main>
-  <script src="script.js"></script>
+      <button class="gerar-btn" id="btn-gerar" onclick="gerarJogos()">
+        ✨ Gerar meus jogos
+      </button>
+      <div class="loading-bar" id="loading-bar"><div class="loading-bar-inner"></div></div>
+      <div class="error-msg" id="error-msg"></div>
+    </div>
+
+    <div class="resultado-section" id="resultado-section">
+      <div class="resultado-header">
+        <div class="section-title" style="margin-bottom:0; flex:1">Seus Jogos</div>
+        <div class="resultado-info" id="resultado-info"></div>
+      </div>
+
+      <div id="jogos-container"></div>
+
+      <div class="investimento-box" id="inv-box">
+        <div class="inv-title">💰 Investimento para Sonhar Grande</div>
+        <div class="inv-grid" id="inv-grid"></div>
+        <div style="margin-top:16px; font-size:12px; color:var(--muted); font-family:'DM Mono',monospace; line-height:1.6;">
+          * Probabilidades baseadas em jogo simples de 6 dezenas (R$ 5,00 cada). Concursos com 3 sorteios/semana.
+          Ganhos sujeitos a tributação. Jogue com responsabilidade — loterias são entretenimento, não investimento financeiro.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="panel-megasena" class="panel">
+    <div class="stats-grid">
+      <div class="stat-card quadra"><div class="stat-label">Quadra ou melhor</div><div class="stat-prob">0,65%</div><div class="stat-ratio">1 em 153,64 concursos</div></div>
+      <div class="stat-card quina"><div class="stat-label">Quina ou melhor</div><div class="stat-prob">0,0097%</div><div class="stat-ratio">1 em 10.269 concursos</div></div>
+      <div class="stat-card sena"><div class="stat-label">Sena (jackpot)</div><div class="stat-prob">0,00003%</div><div class="stat-ratio">1 em 3.337.591 concursos</div></div>
+    </div>
+    <div class="section-title">Jogos da planilha</div>
+    <div class="games-grid">
+      <div class="game-card"><span class="game-num">Jogo 01</span><div class="dezenas"><div class="dez">23</div><div class="dez">26</div><div class="dez">30</div><div class="dez">41</div><div class="dez">44</div><div class="dez">45</div></div></div>
+      <div class="game-card"><span class="game-num">Jogo 02</span><div class="dezenas"><div class="dez">15</div><div class="dez">27</div><div class="dez">36</div><div class="dez">44</div><div class="dez">49</div><div class="dez">50</div></div></div>
+      <div class="game-card"><span class="game-num">Jogo 03</span><div class="dezenas"><div class="dez">27</div><div class="dez">30</div><div class="dez">39</div><div class="dez">45</div><div class="dez">49</div><div class="dez">58</div></div></div>
+      <div class="game-card"><span class="game-num">Jogo 04</span><div class="dezenas"><div class="dez">02</div><div class="dez">13</div><div class="dez">14</div><div class="dez">36</div><div class="dez">45</div><div class="dez">47</div></div></div>
+      <div class="game-card"><span class="game-num">Jogo 05</span><div class="dezenas"><div class="dez">01</div><div class="dez">14</div><div class="dez">16</div><div class="dez">25</div><div class="dez">27</div><div class="dez">36</div></div></div>
+      <div class="game-card"><span class="game-num">Jogo 06</span><div class="dezenas"><div class="dez">23</div><div class="dez">26</div><div class="dez">44</div><div class="dez">47</div><div class="dez">53</div><div class="dez">58</div></div></div>
+      <div class="game-card"><span class="game-num">Jogo 07</span><div class="dezenas"><div class="dez">01</div><div class="dez">02</div><div class="dez">17</div><div class="dez">23</div><div class="dez">46</div><div class="dez">58</div></div></div>
+      <div class="game-card"><span class="game-num">Jogo 08</span><div class="dezenas"><div class="dez">04</div><div class="dez">23</div><div class="dez">37</div><div class="dez">44</div><div class="dez">49</div><div class="dez">58</div></div></div>
+      <div class="game-card"><span class="game-num">Jogo 09</span><div class="dezenas"><div class="dez">02</div><div class="dez">17</div><div class="dez">35</div><div class="dez">44</div><div class="dez">47</div><div class="dez">58</div></div></div>
+      <div class="game-card"><span class="game-num">Jogo 10</span><div class="dezenas"><div class="dez">04</div><div class="dez">13</div><div class="dez">27</div><div class="dez">42</div><div class="dez">44</div><div class="dez">53</div></div></div>
+      <div class="game-card"><span class="game-num">Jogo 11</span><div class="dezenas"><div class="dez">04</div><div class="dez">16</div><div class="dez">17</div><div class="dez">27</div><div class="dez">34</div><div class="dez">42</div></div></div>
+      <div class="game-card"><span class="game-num">Jogo 12</span><div class="dezenas"><div class="dez">01</div><div class="dez">15</div><div class="dez">28</div><div class="dez">35</div><div class="dez">45</div><div class="dez">47</div></div></div>
+      <div class="game-card"><span class="game-num">Jogo 13</span><div class="dezenas"><div class="dez">02</div><div class="dez">23</div><div class="dez">25</div><div class="dez">28</div><div class="dez">30</div><div class="dez">44</div></div></div>
+      <div class="game-card"><span class="game-num">Jogo 14</span><div class="dezenas"><div class="dez">17</div><div class="dez">27</div><div class="dez">30</div><div class="dez">41</div><div class="dez">45</div><div class="dez">46</div></div></div>
+      <div class="game-card"><span class="game-num">Jogo 15</span><div class="dezenas"><div class="dez">01</div><div class="dez">13</div><div class="dez">17</div><div class="dez">27</div><div class="dez">39</div><div class="dez">47</div></div></div>
+    </div>
+  </div>
+
+  <div id="panel-codex" class="panel">
+    <div class="stats-grid">
+      <div class="stat-card quadra"><div class="stat-label">Quadra ou melhor</div><div class="stat-prob">0,65%</div><div class="stat-ratio">1 em 153,64 concursos</div></div>
+      <div class="stat-card quina"><div class="stat-label">Quina ou melhor</div><div class="stat-prob">0,0097%</div><div class="stat-ratio">1 em 10.269 concursos</div></div>
+      <div class="stat-card sena"><div class="stat-label">Sena (jackpot)</div><div class="stat-prob">0,00003%</div><div class="stat-ratio">1 em 3.337.591 concursos</div></div>
+    </div>
+    <div class="section-title">Projeção 12 meses · 156 concursos</div>
+    <div class="proj-extra">
+      <div class="proj-row"><div class="proj-label">Quadra ou melhor em 12 meses</div><div class="proj-val">64%</div><div class="proj-sub">Média esperada: 1,02 acertos</div></div>
+    </div>
+    <div class="section-title">Projeção Codex · 15 jogos</div>
+    <div class="stats-grid" style="margin-bottom:32px">
+      <div class="stat-card quadra"><div class="stat-label">Quadra ou melhor · exato</div><div class="stat-prob">0,65%</div><div class="stat-ratio">probabilidade exata</div></div>
+      <div class="stat-card quina"><div class="stat-label">Quina ou melhor · exato</div><div class="stat-prob">0,0097%</div><div class="stat-ratio">probabilidade exata</div></div>
+      <div class="stat-card sena"><div class="stat-label">Sena · exato</div><div class="stat-prob">0,00003%</div><div class="stat-ratio">probabilidade exata</div></div>
+    </div>
+    <div class="section-title">Jogos Codex</div>
+    <div class="games-grid">
+      <div class="game-card"><span class="game-num">Codex 01</span><div class="dezenas"><div class="dez">10</div><div class="dez">18</div><div class="dez">23</div><div class="dez">39</div><div class="dez">43</div><div class="dez">53</div></div></div>
+      <div class="game-card"><span class="game-num">Codex 02</span><div class="dezenas"><div class="dez">05</div><div class="dez">19</div><div class="dez">21</div><div class="dez">31</div><div class="dez">46</div><div class="dez">58</div></div></div>
+      <div class="game-card"><span class="game-num">Codex 03</span><div class="dezenas"><div class="dez">08</div><div class="dez">17</div><div class="dez">24</div><div class="dez">35</div><div class="dez">45</div><div class="dez">60</div></div></div>
+      <div class="game-card"><span class="game-num">Codex 04</span><div class="dezenas"><div class="dez">07</div><div class="dez">12</div><div class="dez">22</div><div class="dez">38</div><div class="dez">47</div><div class="dez">57</div></div></div>
+      <div class="game-card"><span class="game-num">Codex 05</span><div class="dezenas"><div class="dez">04</div><div class="dez">11</div><div class="dez">30</div><div class="dez">40</div><div class="dez">41</div><div class="dez">52</div></div></div>
+      <div class="game-card"><span class="game-num">Codex 06</span><div class="dezenas"><div class="dez">03</div><div class="dez">15</div><div class="dez">29</div><div class="dez">36</div><div class="dez">44</div><div class="dez">51</div></div></div>
+      <div class="game-card"><span class="game-num">Codex 07</span><div class="dezenas"><div class="dez">01</div><div class="dez">16</div><div class="dez">28</div><div class="dez">37</div><div class="dez">42</div><div class="dez">59</div></div></div>
+      <div class="game-card"><span class="game-num">Codex 08</span><div class="dezenas"><div class="dez">06</div><div class="dez">13</div><div class="dez">27</div><div class="dez">32</div><div class="dez">49</div><div class="dez">55</div></div></div>
+      <div class="game-card"><span class="game-num">Codex 09</span><div class="dezenas"><div class="dez">09</div><div class="dez">14</div><div class="dez">26</div><div class="dez">33</div><div class="dez">50</div><div class="dez">56</div></div></div>
+      <div class="game-card"><span class="game-num">Codex 10</span><div class="dezenas"><div class="dez">02</div><div class="dez0">20</div><div class="dez">25</div><div class="dez">34</div><div class="dez">48</div><div class="dez">54</div></div></div>
+      <div class="game-card"><span class="game-num">Codex 11</span><div class="dezenas"><div class="dez">09</div><div class="dez">18</div><div class="dez">24</div><div class="dez">38</div><div class="dez">48</div><div class="dez">55</div></div></div>
+      <div class="game-card"><span class="game-num">Codex 12</span><div class="dezenas"><div class="dez">05</div><div class="dez">12</div><div class="dez">29</div><div class="dez">40</div><div class="dez">43</div><div class="dez">60</div></div></div>
+      <div class="game-card"><span class="game-num">Codex 13</span><div class="dezenas"><div class="dez">06</div><div class="dez">08</div><div class="dez">20</div><div class="dez">22</div><div class="dez">31</div><div class="dez">52</div></div></div>
+      <div class="game-card"><span class="game-num">Codex 14</span><div class="dezenas"><div class="dez">07</div><div class="dez">19</div><div class="dez">32</div><div class="dez">51</div><div class="dez">56</div><div class="dez">59</div></div></div>
+      <div class="game-card"><span class="game-num">Codex 15</span><div class="dezenas"><div class="dez">10</div><div class="dez">11</div><div class="dez">21</div><div class="dez">33</div><div class="dez">54</div><div class="dez">57</div></div></div>
+    </div>
+  </div>
+
+  <div id="panel-frequencias" class="panel">
+    <div id="freq-loading" style="text-align:center; padding:60px 0; color:var(--muted); font-family:'DM Mono',monospace; font-size:13px;">
+      Carregando dados dos últimos 2 anos...
+    </div>
+    <div id="freq-content" style="display:none">
+      <div class="stats-grid" id="freq-stats"></div>
+      <div class="section-title">Dezenas mais sorteadas · últimos 2 anos</div>
+      <div class="freq-section">
+        <div style="font-size:12px; color:var(--muted); font-family:'DM Mono',monospace; margin-bottom:12px;">
+          <span style="color:var(--gold)">■</span> Top 10 mais frequentes &nbsp;
+          <span style="color:var(--bronze)">■</span> 11–20 frequentes &nbsp;
+          <span style="color:var(--green)">■</span> 21–40 frequentes
+        </div>
+        <div class="freq-grid" id="freq-grid"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div>dados via api oficial caixa · probabilidades calculadas matematicamente · jogue com responsabilidade 🍀</div>
+  </footer>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>

@@ -3,42 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calcule Sorte | Análise Matemática</title>
+    <title>Calcule Sorte - Mega-Sena Inteligente</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="banner-topo"><img src="banner-topo.jpg" alt="Banner"></header>
-    
-    <div class="contador-global">
-        <span id="visit-count">0</span>
-        <span class="label">Cálculos realizados</span>
+
+    <!-- Banners Rotativos de Anunciantes -->
+    <div class="banner-container">
+        <a id="banner-link" href="#" target="_blank">
+            <img id="banner-img" src="" alt="Anunciante Parceiro">
+        </a>
     </div>
 
-    <div class="main-container">
-        <div class="logo-box"><img src="logo.png" alt="Logo"></div>
-        <h1 class="main-title">Análise Matemática</h1>
-        <form id="calc-form">
-            <input type="text" id="user-name" placeholder="Nome Completo" required>
-            <input type="tel" id="user-phone" placeholder="WhatsApp" required>
-            <div class="data-group">
-                <input type="number" id="day" placeholder="Dia" required>
-                <input type="number" id="month" placeholder="Mês" required>
-                <input type="number" id="year" placeholder="Ano" required>
+    <!-- Painel Principal Premium -->
+    <div class="main-panel">
+        
+        <header class="main-header">
+            <div class="logo-wrapper">
+                <img src="logo.png" alt="Calcule Sorte" class="site-logo" onerror="this.style.display='none';">
             </div>
-            <button type="submit" class="btn-calc">CALCULAR MINHA SORTE</button>
-            <p class="free-text">Você possui 5 rodadas de análise gratuita.</p>
-        </form>
+            <h1>Calcule Sorte</h1>
+            <p>Análise Matemática para a Mega-Sena</p>
+            <div class="visitor-counter">Visualizações hoje: <span id="counter-val">0</span></div>
+        </header>
+
+        <main>
+            <!-- SEÇÃO 1: Formulário de Captação de Lead -->
+            <section id="form-section">
+                <form id="calc-form">
+                    <div class="input-group">
+                        <label for="user-name">Nome Completo:</label>
+                        <input type="text" id="user-name" required placeholder="Digite seu nome">
+                    </div>
+                    <div class="input-group">
+                        <label for="user-phone">WhatsApp:</label>
+                        <input type="tel" id="user-phone" required placeholder="(11) 99999-9999">
+                    </div>
+                    
+                    <div class="input-group-row">
+                        <div>
+                            <label for="birth-day">Dia:</label>
+                            <select id="birth-day" required>
+                                <option value="" disabled selected>Dia</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="birth-month">Mês:</label>
+                            <select id="birth-month" required>
+                                <option value="" disabled selected>Mês</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="birth-year">Ano:</label>
+                            <select id="birth-year" required>
+                                <option value="" disabled selected>Ano</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn-glow">⚡ CALCULAR MINHA SORTE</button>
+                </form>
+            </section>
+
+            <!-- SEÇÃO 2: Área de Resultados -->
+            <section id="result-section" class="hidden">
+                <h2>Seus Números Calculados</h2>
+                <div id="numbers-display" class="numbers-grid"></div>
+                <button id="btn-retry" class="btn-secondary">← Voltar e Calcular Novamente (<span id="attempts-left">5</span> restantes)</button>
+            </section>
+        </main>
     </div>
 
-    <div class="footer-section">
-        <div class="icons-row">
-            <div>🍀<br>Números</div><div>💰<br>Prosperidade</div><div>❤️<br>Amor</div><div>🚀<br>Sucesso</div><div>📅<br>Dia Fav.</div>
+    <!-- Rodapé Profissional com Links Institucionais -->
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="termos.html" target="_blank">Termos de Uso</a>
+            <a href="privacidade.html" target="_blank">Políticas de Privacidade</a>
+            <a href="#" id="link-admin-footer">Painel Administrativo</a>
         </div>
-        <div class="banner-rodape"><img src="banner-rodape.jpg" alt="Banner Ação"></div>
-        <footer class="site-footer">
-            <a href="termos.html">Termos de Uso</a> | <a href="privacidade.html">Privacidade</a>
-            <br><a href="admin.html" class="admin-link">⚙️ Painel Admin</a>
-        </footer>
+        <p class="footer-copy">© 2026 CalculeSorte.com.br - Todos os direitos reservados.</p>
+    </footer>
+
+    <div id="paywall-modal" class="modal hidden">
+    <div class="modal-content">
+        <h2 style="color: var(--primary-glow);">Limite Gratuito Atingido!</h2>
+        <p>Você realizou suas 5 consultas gratuitas. Escolha um plano abaixo para continuar acessando nossas análises exclusivas:</p>
+        
+        <div class="plans-container">
+            <div class="plan-card">
+                <h3>Plano Resgate</h3>
+                <p class="price">R$ 5,50</p>
+                <p class="description">Libera acesso completo por 30 dias para você testar nossas estratégias.</p>
+                <a href="https://mpago.la/2toCAj8" target="_blank" class="btn-plan">Contratar via PIX</a>
+            </div>
+
+            <div class="plan-card featured">
+                <div class="badge">Mais Vendido</div>
+                <h3>Plano Expert</h3>
+                <p class="price">R$ 9,90 <span class="period">/mês</span></p>
+                <p class="description">Receba semanalmente 12 jogos analisados pela nossa inteligência direto no seu WhatsApp.</p>
+                <a href="https://www.mercadopago.com.br/subscriptions/checkout?preapproval_plan_id=3b42a58034d1454480a05cac8f31d967" target="_blank" class="btn-plan">Assinar Plano</a>
+            </div>
+        </div>
     </div>
+</div>
+
+    <!-- Painel Administrativo -->
+    <div id="admin-modal" class="modal hidden">
+        <div class="modal-content admin-box">
+            <h2>Painel Secreto Administrativo</h2>
+            <div id="admin-auth">
+                <input type="text" id="admin-user" placeholder="Usuário">
+                <input type="password" id="admin-pass" placeholder="Senha">
+                <button id="btn-login" class="btn-glow">Acessar Painel</button>
+            </div>
+            <div id="admin-data" class="hidden">
+                <h3>Leads Capturados Hoje</h3>
+                <div class="table-wrapper">
+                    <table id="leads-table">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>WhatsApp</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <button id="btn-close-admin" class="btn-secondary">Fechar Painel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

@@ -8,31 +8,36 @@
 </head>
 <body>
 
+    <!-- Banner Topo (Marca) -->
+    <header class="top-banner">
+        <img src="banner-topo.jpg" alt="Banner Topo">
+    </header>
+
+    <!-- Contador (Canto Superior Direito) -->
     <div class="social-proof-counter">
-        <span class="icon-users">👥</span>
-        <span class="count-text">Mais de</span>
-        <span class="count-number highlight">12.847</span>
-        <span class="count-text">cálculos realizados</span>
+        <span class="count-number" id="visit-count">19</span>
+        <span class="count-text">Cálculos realizados</span>
     </div>
 
+    <!-- Logo (Com transbordamento) -->
     <div class="logo-outer">
         <img src="logo.png" alt="Calcule Sorte" class="logo-highlight">
     </div>
 
+    <!-- Painel Central -->
     <div class="main-panel">
         <header class="main-header">
-            <h1 class="main-title">Análise Matemática Mega-Sena <span class="highlight">Probabilidades</span></h1>
-            <p class="authority-text">Matemática Pura • Lógica Estatística • Cálculo Baseado em Padrões</p>
+            <h1 class="main-title">Análise Matemática Mega-Sena</h1>
         </header>
 
         <main>
             <form id="calc-form">
                 <div class="input-group">
-                    <label for="user-name">Nome Completo:</label>
+                    <label>Nome Completo:</label>
                     <input type="text" id="user-name" required placeholder="Digite seu nome">
                 </div>
                 <div class="input-group">
-                    <label for="user-phone">WhatsApp:</label>
+                    <label>WhatsApp:</label>
                     <input type="tel" id="user-phone" required placeholder="(11) 99999-9999">
                 </div>
                 <div class="input-group-row">
@@ -40,33 +45,32 @@
                     <div><label>Mês:</label><select id="birth-month" required><option value="">Mês</option></select></div>
                     <div><label>Ano:</label><select id="birth-year" required><option value="">Ano</option></select></div>
                 </div>
-                <button type="submit" class="btn-glow-blue">⚡ CALCULAR MINHA SORTE</button>
+                <button type="submit" class="btn-calculate">⚡ CALCULAR MINHA SORTE</button>
+                <p class="free-notice">Você possui 5 rodadas de análise gratuita.</p>
             </form>
 
-            <div class="plans-container">
-                <a href="#" class="btn-plan-gold">
-                    <span class="icon-crown">👑</span>
-                    <span class="plan-title">ASSINAR PLANO BÁSICO</span>
-                    <span class="plan-price">R$ 5,00/mês</span>
-                </a>
-                <a href="#" class="btn-plan-gold featured">
-                    <span class="icon-crown">👑</span>
-                    <span class="plan-title">ASSINAR PLANO VIP</span>
-                    <span class="plan-price">R$ 9,90/mês</span>
-                </a>
+            <!-- Ícones 0002.png tratados via CSS -->
+            <div class="features-grid">
+                <div class="feature-item"><span class="icon">🍀</span><span>Números</span></div>
+                <div class="feature-item"><span class="icon">💰</span><span>Prosperidade</span></div>
+                <div class="feature-item"><span class="icon">❤️</span><span>Amor</span></div>
+                <div class="feature-item"><span class="icon">🚀</span><span>Sucesso</span></div>
+                <div class="feature-item"><span class="icon">📅</span><span>Dia Fav.</span></div>
             </div>
         </main>
     </div>
 
-    <div class="banner-container footer-banner">
-        <a id="banner-link-bottom" href="#" target="_blank">
-            <img id="banner-img-bottom" src="" alt="">
-        </a>
+    <!-- Banner Rodapé (Ação) -->
+    <div class="footer-banner">
+        <img src="banner-rodape.jpg" alt="Banner Ação">
     </div>
 
     <footer class="site-footer">
+        <div class="footer-links">
+            <a href="#">Termos de Uso</a> | <a href="#">Privacidade</a>
+        </div>
         <p class="footer-copy">© 2026 CalculeSorte.com.br</p>
-        <a href="#" id="link-admin-footer" class="admin-stealth-link">⚙️</a>
+        <a href="admin.html" class="admin-stealth-link">⚙️</a>
     </footer>
 
     <script src="script.js"></script>

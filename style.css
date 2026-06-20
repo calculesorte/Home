@@ -11,3 +11,33 @@ input { width: 100%; padding: 12px; margin: 8px 0; background: #0b0f19; border: 
 .label { color: var(--mercurio); font-size: 0.7rem; display: block; text-transform: uppercase; }
 .icons-row { display: flex; justify-content: space-around; font-size: 0.7rem; color: var(--bronze); margin: 20px 0; }
 .site-footer { text-align: center; font-size: 0.7rem; color: var(--mercurio); margin-top: 20px; }
+/* Correção da Logo e Container */
+.logo-box img { 
+    max-width: 100%; 
+    height: auto; 
+    display: block; 
+    margin: 0 auto; 
+}
+
+.banner-topo img, .banner-rodape img { 
+    width: 100%; 
+    max-width: 400px; 
+    display: block; 
+    margin: 0 auto; 
+}
+
+/* Alinhamento da Pilha */
+body { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: flex-start; 
+    min-height: 100vh; 
+}
+
+/* Melhoria no Formulário */
+.main-container { 
+    width: 90%; 
+    max-width: 400px; 
+    margin-top: 20px; 
+}

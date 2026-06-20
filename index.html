@@ -1,112 +1,124 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calcule Sorte · Mega-Sena Inteligente</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcule Sorte - Mega-Sena Inteligente</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <div class="header-inner">
-      <div class="logo">
-        Calcule Sorte
-        <span>estatísticas & probabilidades aplicadas</span>
-      </div>
-      <div class="badge" id="concurso-badge">Mega-Sena</div>
+
+    <!-- Banners Rotativos de Anunciantes -->
+    <div class="banner-container">
+        <a id="banner-link" href="#" target="_blank">
+            <img id="banner-img" src="" alt="Anunciante Parceiro">
+        </a>
     </div>
-  </header>
 
-  <main class="conteudo-principal">
-    <section class="painel-app painel-azul" id="painel-entrada">
-      <div class="painel-header">🔮 Calcule Agora Mesmo</div>
-      <div class="painel-body">
-        <div class="form-group-original">
-          <input type="text" id="nome" placeholder="Seu nome" />
+    <!-- Painel Principal com Moldura Iluminada -->
+    <div class="main-panel">
+        <header>
+            <h1>Calcule Sorte</h1>
+            <p>Análise Matemática para a Mega-Sena</p>
+            <div class="visitor-counter">Visualizações hoje: <span id="counter-val">0</span></div>
+        </header>
+
+        <main>
+            <!-- Formulário de Captação de Lead / Input de Dados -->
+            <section id="form-section">
+                <form id="calc-form">
+                    <div class="input-group">
+                        <label for="user-name">Nome Completo:</label>
+                        <input type="text" id="user-name" required placeholder="Digite seu nome">
+                    </div>
+                    <div class="input-group">
+                        <label for="user-phone">WhatsApp:</label>
+                        <input type="tel" id="user-phone" required placeholder="(11) 99999-9999">
+                    </div>
+                    <div class="input-group-row">
+                        <div>
+                            <label for="birth-day">Dia:</label>
+                            <input type="number" id="birth-day" min="1" max="31" required placeholder="DD">
+                        </div>
+                        <div>
+                            <label for="birth-month">Mês:</label>
+                            <input type="number" id="birth-month" min="1" max="12" required placeholder="MM">
+                        </div>
+                        <div>
+                            <label for="birth-year">Ano:</label>
+                            <input type="number" id="birth-year" min="1920" max="2026" required placeholder="AAAA">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-glow">Gerar Combinações Matemáticas</button>
+                </form>
+            </section>
+
+            <!-- Área de Resultados -->
+            <section id="result-section" class="hidden">
+                <h2>Seus Números Calculados</h2>
+                <div id="numbers-display" class="numbers-grid"></div>
+                <button id="btn-retry" class="btn-secondary">Calcular Novamente (<span id="attempts-left">5</span> tentativas restantes)</button>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal de Bloqueio (Paywall de Planos) -->
+    <div id="paywall-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Limite Gratuito Atingido!</h2>
+            <p>Você realizou suas 5 consultas gratuitas de hoje. Escolha um plano para liberar acessos ilimitados e receber análises exclusivas:</p>
+            
+            <div class="plans-container">
+                <!-- Plano Resgate -->
+                <div class="plan-card">
+                    <h3>Plano Resgate</h3>
+                    <p class="price">R$ 5,00</p>
+                    <p class="description">Libera +30 dias de consultas completas direto no site para você testar suas estratégias.</p>
+                    <a href="https://mpago.la/2toCAj8" target="_blank" class="btn-plan">Contratar via PIX</a>
+                </div>
+                
+                <!-- Plano Expert -->
+                <div class="plan-card featured">
+                    <div class="badge">Mais Vendido</div>
+                    <h3>Plano Expert</h3>
+                    <p class="price">R$ 9,90 <span class="period">/mês</span></p>
+                    <p class="description">Receba semanalmente 12 jogos prontos e analisados pela nossa inteligência matemática direto no seu WhatsApp.</p>
+                    <a href="https://www.mercadopago.com.br/subscriptions/checkout?preapproval_plan_id=3b42a58034d1454480a05cac8f31d967" target="_blank" class="btn-plan">Assinar Plano</a>
+                </div>
+            </div>
         </div>
-        <div class="form-group-original">
-          <input type="text" id="whatsapp" placeholder="WhatsApp" />
+    </div>
+
+    <!-- Painel Administrativo Oculto (Acessado via console ou atalho) -->
+    <div id="admin-modal" class="modal hidden">
+        <div class="modal-content admin-box">
+            <h2>Painel Secreto Administrativo</h2>
+            <div id="admin-auth">
+                <input type="text" id="admin-user" placeholder="Usuário">
+                <input type="password" id="admin-pass" placeholder="Senha">
+                <button id="btn-login" class="btn-glow">Acessar Painel</button>
+            </div>
+            <div id="admin-data" class="hidden">
+                <h3>Leads Capturados Hoje</h3>
+                <div class="table-wrapper">
+                    <table id="leads-table">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>WhatsApp</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Inserido dinamicamente via JS -->
+                        </tbody>
+                    </table>
+                </div>
+                <button id="btn-close-admin" class="btn-secondary">Fechar Painel</button>
+            </div>
         </div>
-        
-        <div class="campos-data">
-          <div class="select-wrapper">
-            <label>Dia</label>
-            <select id="dia">
-              <option value="">Dia</option>
-              <script>for(let i=1;i<=31;i++) document.write(`<option value="${i}">${String(i).padStart(2,'0')}</option>`);</script>
-            </select>
-          </div>
-          <div class="select-wrapper">
-            <label>Mês</label>
-            <select id="mes">
-              <option value="">Mês</option>
-              <script>for(let i=1;i<=12;i++) document.write(`<option value="${i}">${String(i).padStart(2,'0')}</option>`);</script>
-            </select>
-          </div>
-          <div class="select-wrapper">
-            <label>Ano</label>
-            <select id="ano">
-              <option value="">Ano</option>
-              <script>for(let i=2026;i>=1920;i--) document.write(`<option value="${i}">${i}</option>`);</script>
-            </select>
-          </div>
-        </div>
+    </div>
 
-        <button id="btn-gerar" onclick="gerarCalculoGratis()">⚡ CALCULAR MINHA SORTE</button>
-        <div class="loading-bar" id="loading-bar"><div class="loading-bar-inner"></div></div>
-        <div class="error-msg" id="error-msg"></div>
-      </div>
-    </section>
-
-    <section class="painel-app painel-verde" id="painel-resultado" style="display: none;">
-      <div class="painel-header">📊 Perfil Gerado: <span id="nome-perfil">---</span></div>
-      <div class="painel-body">
-        
-        <div class="original-alert">
-          🎯 O motor estatístico cruzou sua data de nascimento com os padrões de dezenas mais quentes da Mega-Sena nos últimos 2 anos.
-        </div>
-
-        <div class="numeros-sorte-container">
-          <p>🔒 Seus Números da Sorte Parciais</p>
-          <div class="dezenas-bloqueadas">
-            <div class="dez-blur">??</div>
-            <div class="dez-blur">??</div>
-            <div class="num-restante">+4 dezenas ocultas</div>
-          </div>
-
-          <div class="resultado-final" id="resultado-final">00 - 00 - 00 - 00 - 00 - 00</div>
-          
-          <a href="https://mpago.la/1QwMGS7" target="_blank" style="text-decoration: none;">
-            <button class="btn-pix">Liberar Revelação Completa (PIX)</button>
-          </a>
-        </div>
-
-        <div class="stats-integradas">
-          <div class="stat-mini">
-            <span>Probabilidade Quadra</span>
-            <strong>1 em 154</strong>
-          </div>
-          <div class="stat-mini">
-            <span>Probabilidade Quina</span>
-            <strong>1 em 10.269</strong>
-          </div>
-          <div class="stat-mini">
-            <span>Probabilidade Sena</span>
-            <strong>1 em 3.337.591</strong>
-          </div>
-        </div>
-
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div>Calcule Sorte © 2026 · Análise Estatística Combinatória</div>
-  </footer>
-</div>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

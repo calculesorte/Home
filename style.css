@@ -1,31 +1,26 @@
 :root {
-    --bg-color: #060a13;
-    --mercure: #64748b; /* Cinza-azulado */
-    --bronze: #cd7f32;  /* Bronze quente */
+    --bg-dark: #060a13;
+    --mercurio: #64748b;
+    --bronze: #cd7f32;
     --cobre: #b87333;
     --aco: #4a5568;
-    --white: #ffffff;
 }
 
-body { background-color: var(--bg-color); font-family: 'Segoe UI', sans-serif; color: var(--white); margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+body { background: var(--bg-dark); color: #fff; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; margin: 0; padding: 10px; }
 
-/* Contador */
-.social-proof-counter { position: fixed; top: 10px; right: 10px; text-align: right; }
-.count-number { color: var(--bronze); font-size: 1.5rem; font-weight: bold; display: block; }
-.count-text { color: var(--mercure); font-size: 0.7rem; text-transform: uppercase; }
+.contador-container { position: fixed; top: 10px; right: 15px; text-align: right; }
+.count-number { color: var(--bronze); font-size: 1.4rem; font-weight: bold; display: block; }
+.count-text { color: var(--mercurio); font-size: 0.6rem; text-transform: uppercase; }
 
-/* Logo com transbordamento */
-.logo-outer { margin-bottom: -30px; z-index: 10; }
-.logo-highlight { width: 200px; }
+.logo-area { margin: -20px 0 10px 0; z-index: 10; }
+.logo-img { width: 180px; }
 
-/* Painel e Botão */
-.main-panel { background: #141b2d; width: 100%; max-width: 400px; padding: 40px 20px 20px 20px; border-radius: 12px; border: 1px solid var(--aco); }
-.btn-calculate { width: 100%; padding: 15px; background: var(--cobre); border: none; color: white; font-weight: bold; cursor: pointer; border-radius: 6px; }
-.free-notice { text-align: center; font-size: 0.7rem; color: var(--mercure); margin-top: 10px; }
+.main-panel { background: #141b2d; width: 100%; max-width: 380px; padding: 25px; border-radius: 10px; border: 1px solid var(--aco); }
+.input-box input, .data-row input { width: 100%; padding: 10px; margin-bottom: 10px; background: #0b0f19; border: 1px solid var(--aco); color: #fff; border-radius: 4px; box-sizing: border-box; }
+.data-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 5px; }
 
-/* Grid de Ícones */
-.features-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 5px; margin-top: 20px; text-align: center; font-size: 0.6rem; color: var(--bronze); }
+.btn-calc { width: 100%; padding: 12px; background: var(--cobre); border: none; color: #fff; font-weight: bold; cursor: pointer; border-radius: 4px; }
+.free-text { font-size: 0.7rem; color: var(--mercurio); text-align: center; margin-top: 8px; }
 
-/* Banners e Rodapé */
-.top-banner, .footer-banner { width: 100%; max-width: 400px; margin: 10px 0; }
-.admin-stealth-link { position: fixed; bottom: 5px; right: 5px; color: var(--mercure); text-decoration: none; font-size: 0.8rem; }
+.icons-grid { display: grid; grid-template-columns: repeat(5, 1fr); font-size: 0.55rem; color: var(--bronze); margin-top: 15px; text-align: center; }
+.admin-link { position: fixed; bottom: 5px; right: 5px; color: var(--mercurio); text-decoration: none; }

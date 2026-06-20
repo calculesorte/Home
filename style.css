@@ -6,40 +6,45 @@
 }
 
 body {
-    background-image: linear-gradient(rgba(6, 10, 19, 0.9), rgba(6, 10, 19, 0.9)), url('image_cb51ae.jpg');
+    /* Agora a imagem deve carregar corretamente */
+    background-color: var(--bg-color);
+    background-image: linear-gradient(rgba(6, 10, 19, 0.8), rgba(6, 10, 19, 0.8)), url('image_cb51ae.jpg');
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     background-attachment: fixed;
     color: white;
     font-family: 'Segoe UI', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center; /* Centraliza verticalmente */
     min-height: 100vh;
     margin: 0;
     padding: 20px;
 }
 
-/* Logo "quebrando" a caixa */
-.logo-outer { margin-bottom: -40px; z-index: 10; }
-.logo-highlight { width: 180px; filter: drop-shadow(0 0 10px rgba(246, 173, 85, 0.3)); }
+.logo-outer { margin-bottom: -40px; z-index: 10; text-align: center; }
+.logo-highlight { width: 180px; }
 
 .main-panel {
     width: 100%;
-    max-width: 500px;
+    max-width: 450px;
     background: var(--panel-bg);
-    padding: 60px 30px 30px 30px;
+    padding: 50px 30px 30px 30px;
     border-radius: 16px;
     border: 1px solid #2d3748;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-.main-title { font-size: 1.4rem; text-align: center; margin-bottom: 5px; }
-.highlight { color: var(--gold); }
-.authority-text { font-size: 0.75rem; color: var(--blue); text-align: center; text-transform: uppercase; letter-spacing: 1px; }
+.main-title { font-size: 1.3rem; text-align: center; margin-bottom: 5px; color: white; }
+.highlight { color: var(--gold); display: block; }
+.authority-text { font-size: 0.7rem; color: var(--blue); text-align: center; text-transform: uppercase; margin-bottom: 20px; }
 
+.input-group { margin-bottom: 15px; }
+label { display: block; margin-bottom: 5px; font-size: 0.8rem; color: #a0aec0; }
 input { width: 100%; background: #0b0f19; border: 1px solid #334155; padding: 12px; border-radius: 6px; color: white; box-sizing: border-box; }
-.btn-glow { width: 100%; padding: 15px; border: none; background: var(--blue); color: #000; font-weight: bold; border-radius: 6px; cursor: pointer; }
+.btn-glow { width: 100%; padding: 15px; border: none; background: var(--blue); color: #000; font-weight: bold; border-radius: 6px; cursor: pointer; margin-top: 10px; }
 
-.footer-banner { margin-top: 30px; width: 100%; max-width: 500px; }
-.admin-stealth-link { position: fixed; bottom: 10px; right: 10px; opacity: 0.1; color: white; text-decoration: none; }
-.admin-stealth-link:hover { opacity: 0.8; }
+.footer-banner { margin-top: 20px; width: 100%; max-width: 450px; height: 80px; }
+.admin-stealth-link { position: fixed; bottom: 10px; right: 10px; opacity: 0.3; color: white; text-decoration: none; }

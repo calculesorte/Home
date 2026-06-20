@@ -36,21 +36,29 @@
                         <label for="user-phone">WhatsApp:</label>
                         <input type="tel" id="user-phone" required placeholder="(11) 99999-9999">
                     </div>
+                    
                     <div class="input-group-row">
                         <div>
                             <label for="birth-day">Dia:</label>
-                            <input type="number" id="birth-day" min="1" max="31" required placeholder="DD">
+                            <select id="birth-day" required>
+                                <option value="" disabled selected>Dia</option>
+                                </select>
                         </div>
                         <div>
                             <label for="birth-month">Mês:</label>
-                            <input type="number" id="birth-month" min="1" max="12" required placeholder="MM">
+                            <select id="birth-month" required>
+                                <option value="" disabled selected>Mês</option>
+                                </select>
                         </div>
                         <div>
                             <label for="birth-year">Ano:</label>
-                            <input type="number" id="birth-year" min="1920" max="2026" required placeholder="AAAA">
+                            <select id="birth-year" required>
+                                <option value="" disabled selected>Ano</option>
+                                </select>
                         </div>
                     </div>
-                    <button type="submit" class="btn-glow">Gerar Combinações Matemáticas</button>
+                    
+                    <button type="submit" class="btn-glow">⚡ CALCULAR MINHA SORTE</button>
                 </form>
             </section>
 
@@ -62,11 +70,19 @@
         </main>
     </div>
 
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="termos.html" target="_blank">Termos de Uso</a>
+            <a href="privacidade.html" target="_blank">Políticas de Privacidade</a>
+            <a href="#" id="link-admin-footer">Painel Administrativo</a>
+        </div>
+        <p class="footer-copy">© 2026 CalculeSorte.com.br - Todos os direitos reservados.</p>
+    </footer>
+
     <div id="paywall-modal" class="modal hidden">
         <div class="modal-content">
             <h2>Limite Gratuito Atingido!</h2>
             <p>Você realizou suas 5 consultas gratuitas de hoje. Escolha um plano para liberar acessos ilimitados e receber análises exclusivas:</p>
-            
             <div class="plans-container">
                 <div class="plan-card">
                     <h3>Plano Resgate</h3>
@@ -74,7 +90,6 @@
                     <p class="description">Libera +30 dias de consultas completas direto no site para você testar suas estratégias.</p>
                     <a href="https://mpago.la/2toCAj8" target="_blank" class="btn-plan">Contratar via PIX</a>
                 </div>
-                
                 <div class="plan-card featured">
                     <div class="badge">Mais Vendido</div>
                     <h3>Plano Expert</h3>
@@ -105,8 +120,7 @@
                                 <th>Status</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            </tbody>
+                        <tbody></tbody>
                     </table>
                 </div>
                 <button id="btn-close-admin" class="btn-secondary">Fechar Painel</button>

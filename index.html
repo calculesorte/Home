@@ -3,74 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calcule Sorte - Análise Matemática</title>
+    <title>Calcule Sorte | Análise Matemática</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Banner Topo (Marca) -->
-    <header class="top-banner">
-        <img src="banner-topo.jpg" alt="Banner Topo">
+    <header class="banner-topo">
+        <img src="banner-topo.jpg" alt="Banner Institucional">
     </header>
 
-    <!-- Contador (Canto Superior Direito) -->
-    <div class="social-proof-counter">
-        <span class="count-number" id="visit-count">19</span>
+    <div class="contador-container">
+        <span id="visit-count" class="count-number">19</span>
         <span class="count-text">Cálculos realizados</span>
     </div>
 
-    <!-- Logo (Com transbordamento) -->
-    <div class="logo-outer">
-        <img src="logo.png" alt="Calcule Sorte" class="logo-highlight">
+    <div class="logo-area">
+        <img src="logo.png" alt="Calcule Sorte" class="logo-img">
     </div>
 
-    <!-- Painel Central -->
-    <div class="main-panel">
-        <header class="main-header">
-            <h1 class="main-title">Análise Matemática Mega-Sena</h1>
-        </header>
-
-        <main>
-            <form id="calc-form">
-                <div class="input-group">
-                    <label>Nome Completo:</label>
-                    <input type="text" id="user-name" required placeholder="Digite seu nome">
-                </div>
-                <div class="input-group">
-                    <label>WhatsApp:</label>
-                    <input type="tel" id="user-phone" required placeholder="(11) 99999-9999">
-                </div>
-                <div class="input-group-row">
-                    <div><label>Dia:</label><select id="birth-day" required><option value="">Dia</option></select></div>
-                    <div><label>Mês:</label><select id="birth-month" required><option value="">Mês</option></select></div>
-                    <div><label>Ano:</label><select id="birth-year" required><option value="">Ano</option></select></div>
-                </div>
-                <button type="submit" class="btn-calculate">⚡ CALCULAR MINHA SORTE</button>
-                <p class="free-notice">Você possui 5 rodadas de análise gratuita.</p>
-            </form>
-
-            <!-- Ícones 0002.png tratados via CSS -->
-            <div class="features-grid">
-                <div class="feature-item"><span class="icon">🍀</span><span>Números</span></div>
-                <div class="feature-item"><span class="icon">💰</span><span>Prosperidade</span></div>
-                <div class="feature-item"><span class="icon">❤️</span><span>Amor</span></div>
-                <div class="feature-item"><span class="icon">🚀</span><span>Sucesso</span></div>
-                <div class="feature-item"><span class="icon">📅</span><span>Dia Fav.</span></div>
+    <main class="main-panel">
+        <h1 class="main-title">Análise Matemática</h1>
+        <form id="calc-form">
+            <div class="input-box"><input type="text" id="user-name" placeholder="Nome Completo" required></div>
+            <div class="input-box"><input type="tel" id="user-phone" placeholder="WhatsApp" required></div>
+            <div class="data-row">
+                <input type="number" id="day" placeholder="Dia" min="1" max="31" required>
+                <input type="number" id="month" placeholder="Mês" min="1" max="12" required>
+                <input type="number" id="year" placeholder="Ano" min="1900" max="2026" required>
             </div>
-        </main>
-    </div>
+            <button type="submit" class="btn-calc">CALCULAR MINHA SORTE</button>
+            <p class="free-text">Você possui 5 rodadas de análise gratuita.</p>
+        </form>
 
-    <!-- Banner Rodapé (Ação) -->
-    <div class="footer-banner">
-        <img src="banner-rodape.jpg" alt="Banner Ação">
-    </div>
+        <div class="icons-grid">
+            <div>🍀<br>Números</div><div>💰<br>Prosperidade</div><div>❤️<br>Amor</div><div>🚀<br>Sucesso</div><div>📅<br>Dia Fav.</div>
+        </div>
+    </main>
 
-    <footer class="site-footer">
+    <footer class="footer-area">
+        <div class="banner-rodape">
+            <img src="banner-rodape.jpg" alt="Banner Ação">
+        </div>
         <div class="footer-links">
             <a href="#">Termos de Uso</a> | <a href="#">Privacidade</a>
         </div>
-        <p class="footer-copy">© 2026 CalculeSorte.com.br</p>
-        <a href="admin.html" class="admin-stealth-link">⚙️</a>
+        <a href="admin.html" class="admin-link">⚙️</a>
     </footer>
 
     <script src="script.js"></script>

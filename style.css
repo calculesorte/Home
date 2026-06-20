@@ -283,3 +283,15 @@ th {
 }
 
 .hidden { display: none !important; }
+
+.logo-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.site-logo {
+    max-width: 120px;
+    height: auto;
+    object-fit: contain;
+}

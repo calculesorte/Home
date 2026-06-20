@@ -8,14 +8,12 @@
 </head>
 <body>
 
-    <!-- Banners Rotativos de Anunciantes -->
     <div class="banner-container">
         <a id="banner-link" href="#" target="_blank">
             <img id="banner-img" src="" alt="Anunciante Parceiro">
         </a>
     </div>
 
-    <!-- Painel Principal com Moldura Iluminada -->
     <div class="main-panel">
         <header>
             <h1>Calcule Sorte</h1>
@@ -24,7 +22,6 @@
         </header>
 
         <main>
-            <!-- Formulário de Captação de Lead / Input de Dados -->
             <section id="form-section">
                 <form id="calc-form">
                     <div class="input-group">
@@ -53,7 +50,6 @@
                 </form>
             </section>
 
-            <!-- Área de Resultados -->
             <section id="result-section" class="hidden">
                 <h2>Seus Números Calculados</h2>
                 <div id="numbers-display" class="numbers-grid"></div>
@@ -62,14 +58,12 @@
         </main>
     </div>
 
-    <!-- Modal de Bloqueio (Paywall de Planos) -->
     <div id="paywall-modal" class="modal hidden">
         <div class="modal-content">
             <h2>Limite Gratuito Atingido!</h2>
             <p>Você realizou suas 5 consultas gratuitas de hoje. Escolha um plano para liberar acessos ilimitados e receber análises exclusivas:</p>
             
             <div class="plans-container">
-                <!-- Plano Resgate -->
                 <div class="plan-card">
                     <h3>Plano Resgate</h3>
                     <p class="price">R$ 5,00</p>
@@ -77,7 +71,6 @@
                     <a href="https://mpago.la/2toCAj8" target="_blank" class="btn-plan">Contratar via PIX</a>
                 </div>
                 
-                <!-- Plano Expert -->
                 <div class="plan-card featured">
                     <div class="badge">Mais Vendido</div>
                     <h3>Plano Expert</h3>
@@ -89,7 +82,6 @@
         </div>
     </div>
 
-    <!-- Painel Administrativo Oculto (Acessado via console ou atalho) -->
     <div id="admin-modal" class="modal hidden">
         <div class="modal-content admin-box">
             <h2>Painel Secreto Administrativo</h2>
@@ -110,8 +102,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- Inserido dinamicamente via JS -->
-                        </tbody>
+                            </tbody>
                     </table>
                 </div>
                 <button id="btn-close-admin" class="btn-secondary">Fechar Painel</button>

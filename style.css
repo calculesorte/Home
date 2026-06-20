@@ -8,14 +8,13 @@
     --accent-gold: #f6ad55;
 }
 
-/* Corpo com Fundo Premium Texturizado */
+/* Corpo com Imagem de Fundo Premium */
 body {
-    background-color: var(--bg-color);
-    background-image: 
-        radial-gradient(at 50% 0%, rgba(0, 242, 254, 0.08) 0px, transparent 50%),
-        linear-gradient(rgba(20, 27, 45, 0.3) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(20, 27, 45, 0.3) 1px, transparent 1px);
-    background-size: 100% 100%, 24px 24px, 24px 24px;
+    background-image: linear-gradient(rgba(6, 10, 19, 0.85), rgba(6, 10, 19, 0.85)), url('image_cb51ae.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     color: var(--text-color);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -41,8 +40,9 @@ body {
 
 .float-item {
     position: absolute;
-    animation: float 6s ease-in-out infinite;
-    opacity: 0.3;
+    animation: float 4s ease-in-out infinite;
+    opacity: 0.4;
+    z-index: -1;
 }
 
 .coin-1 { top: 15%; left: 10%; width: 60px; }
@@ -50,9 +50,21 @@ body {
 .money-1 { bottom: 10%; left: 15%; width: 120px; }
 
 @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-40px) rotate(5deg); }
 }
+
+/* Botão Admin Invisível */
+.admin-stealth-link {
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    opacity: 0.05;
+    text-decoration: none;
+    font-size: 20px;
+    z-index: 9999;
+}
+.admin-stealth-link:hover { opacity: 1; }
 
 /* Banner de Anunciantes */
 .banner-container {

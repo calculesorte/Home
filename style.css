@@ -1,134 +1,31 @@
 :root {
     --bg-color: #060a13;
-    --panel-bg: #141b2d;
-    --gold: #f6ad55;
-    --gold-gradient: linear-gradient(135deg, #f6ad55 0%, #ed8936 100%);
-    --blue: #00f2fe;
-    --text-color: #ffffff;
+    --mercure: #64748b; /* Cinza-azulado */
+    --bronze: #cd7f32;  /* Bronze quente */
+    --cobre: #b87333;
+    --aco: #4a5568;
+    --white: #ffffff;
 }
 
-body {
-    background-color: var(--bg-color);
-    background-image: linear-gradient(rgba(6, 10, 19, 0.9), rgba(6, 10, 19, 0.9)), url('image_cb51ae.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    color: var(--text-color);
-    font-family: 'Segoe UI', sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    margin: 0;
-    padding: 20px;
-    box-sizing: border-box;
-}
+body { background-color: var(--bg-color); font-family: 'Segoe UI', sans-serif; color: var(--white); margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
 
-/* Contador de Prova Social (Canto Superior Direito) */
-.social-proof-counter {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: rgba(20, 27, 45, 0.9);
-    border: 1px solid #334155;
-    padding: 10px 15px;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    font-size: 0.8rem;
-    color: #a0aec0;
-    z-index: 100;
-}
-.social-proof-counter .count-number { font-size: 1.2rem; font-weight: bold; }
+/* Contador */
+.social-proof-counter { position: fixed; top: 10px; right: 10px; text-align: right; }
+.count-number { color: var(--bronze); font-size: 1.5rem; font-weight: bold; display: block; }
+.count-text { color: var(--mercure); font-size: 0.7rem; text-transform: uppercase; }
 
-/* Logo "quebrando" a caixa */
-.logo-outer { margin-bottom: -40px; z-index: 10; text-align: center; }
-.logo-highlight { width: 180px; }
+/* Logo com transbordamento */
+.logo-outer { margin-bottom: -30px; z-index: 10; }
+.logo-highlight { width: 200px; }
 
-.main-panel {
-    width: 100%;
-    max-width: 450px;
-    background: var(--panel-bg);
-    padding: 50px 30px 30px 30px;
-    border-radius: 16px;
-    border: 1px solid #2d3748;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
+/* Painel e Botão */
+.main-panel { background: #141b2d; width: 100%; max-width: 400px; padding: 40px 20px 20px 20px; border-radius: 12px; border: 1px solid var(--aco); }
+.btn-calculate { width: 100%; padding: 15px; background: var(--cobre); border: none; color: white; font-weight: bold; cursor: pointer; border-radius: 6px; }
+.free-notice { text-align: center; font-size: 0.7rem; color: var(--mercure); margin-top: 10px; }
 
-.main-title { font-size: 1.3rem; text-align: center; margin-bottom: 5px; }
-.highlight { color: var(--gold); }
-.authority-text { font-size: 0.7rem; color: var(--blue); text-align: center; text-transform: uppercase; margin-bottom: 20px; }
+/* Grid de Ícones */
+.features-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 5px; margin-top: 20px; text-align: center; font-size: 0.6rem; color: var(--bronze); }
 
-/* Formulário */
-.input-group { margin-bottom: 15px; }
-label { display: block; margin-bottom: 5px; font-size: 0.8rem; color: #a0aec0; }
-input, select { width: 100%; background: #0b0f19; border: 1px solid #334155; padding: 12px; border-radius: 6px; color: white; box-sizing: border-box; font-size: 1rem; }
-select { appearance: none; cursor: pointer; }
-
-/* Grid de Data */
-.input-group-row { display: grid; grid-template-columns: 1fr 1.5fr 1fr; gap: 10px; margin-bottom: 25px; }
-
-/* Botão Calcular */
-.btn-glow-blue { 
-    width: 100%; 
-    padding: 15px; 
-    border: none; 
-    background: var(--blue); 
-    color: #000; 
-    font-weight: bold; 
-    border-radius: 6px; 
-    cursor: pointer; 
-    transition: 0.3s; 
-}
-.btn-glow-blue:hover { box-shadow: 0 0 15px rgba(0, 242, 254, 0.5); transform: translateY(-1px); }
-
-/* Seção de Planos (Botões Gold) */
-.plans-container { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 30px; text-align: center; }
-
-.btn-plan-gold {
-    background: var(--gold-gradient);
-    border: none;
-    color: #000;
-    text-decoration: none;
-    padding: 20px;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-weight: bold;
-    transition: 0.3s;
-}
-.btn-plan-gold:hover { transform: translateY(-2px); box-shadow: 0 0 15px rgba(246, 173, 85, 0.4); }
-
-/* Destaque para o Plano VIP */
-.btn-plan-gold.featured {
-    border: 2px solid var(--gold);
-    position: relative;
-    padding-top: 25px;
-}
-.btn-plan-gold.featured::before {
-    content: "RECOMENDADO";
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--bg-color);
-    padding: 2px 10px;
-    font-size: 0.6rem;
-    color: var(--gold);
-    border-radius: 10px;
-    border: 1px solid var(--gold);
-}
-
-.plan-title { font-size: 1rem; margin-top: 5px; }
-.plan-price { font-size: 1.3rem; margin-top: 5px; }
-.icon-crown { font-size: 1.5rem; }
-
-/* Rodapé */
-.footer-banner { margin-top: 30px; width: 100%; max-width: 450px; height: 80px; }
-.site-footer { margin-top: 20px; text-align: center; }
-.footer-copy { font-size: 0.8rem; color: #4a5568; }
-.admin-stealth-link { position: fixed; bottom: 10px; right: 10px; opacity: 0.2; color: white; text-decoration: none; font-size: 1rem; }
+/* Banners e Rodapé */
+.top-banner, .footer-banner { width: 100%; max-width: 400px; margin: 10px 0; }
+.admin-stealth-link { position: fixed; bottom: 5px; right: 5px; color: var(--mercure); text-decoration: none; font-size: 0.8rem; }

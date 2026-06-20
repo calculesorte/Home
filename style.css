@@ -1,14 +1,13 @@
-/* Ajustes de Metal */
-:root { --bronze: #cd7f32; --mercurio: #64748b; --aco: #4a5568; }
-
-.logo-box { margin-bottom: 15px; }
-.logo-img { width: 150px; } /* Tamanho original restaurado */
-
-.contador-global { color: var(--bronze); text-align: center; margin: 10px 0; }
-.contador-global .label { color: var(--mercurio); font-size: 0.7rem; display: block; }
-
-.footer-section { margin-top: 30px; width: 100%; max-width: 400px; }
-.icons-row { display: flex; justify-content: space-around; font-size: 0.7rem; color: var(--bronze); margin-bottom: 20px; }
-.banner-rodape { width: 100%; }
-
-.admin-link { color: var(--mercurio); font-size: 0.8rem; text-decoration: none; }
+:root { --bg: #060a13; --mercurio: #64748b; --bronze: #cd7f32; --cobre: #b87333; --aco: #4a5568; }
+body { background: var(--bg); color: #fff; font-family: 'Segoe UI', sans-serif; display: flex; flex-direction: column; align-items: center; padding: 20px; margin: 0; }
+.banner-topo, .banner-rodape { width: 100%; max-width: 400px; margin: 10px 0; }
+.main-container { background: #141b2d; width: 100%; max-width: 400px; padding: 30px; border-radius: 12px; border: 1px solid var(--aco); box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+.logo-box { text-align: center; margin-bottom: 20px; }
+.logo-box img { width: 150px; }
+input { width: 100%; padding: 12px; margin: 8px 0; background: #0b0f19; border: 1px solid var(--aco); color: white; border-radius: 6px; box-sizing: border-box; }
+.data-group { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+.btn-calc { width: 100%; padding: 15px; background: var(--cobre); border: none; color: white; font-weight: bold; cursor: pointer; border-radius: 6px; margin-top: 10px; }
+.contador-global { color: var(--bronze); text-align: center; font-size: 1.2rem; margin: 10px 0; }
+.label { color: var(--mercurio); font-size: 0.7rem; display: block; text-transform: uppercase; }
+.icons-row { display: flex; justify-content: space-around; font-size: 0.7rem; color: var(--bronze); margin: 20px 0; }
+.site-footer { text-align: center; font-size: 0.7rem; color: var(--mercurio); margin-top: 20px; }

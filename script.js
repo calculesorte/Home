@@ -16,7 +16,30 @@ const MAX_ATTEMPTS = 5;
 document.addEventListener("DOMContentLoaded", () => {
     initBanners();
     updateCounterAndCheckAttempts();
+// Gerar Dias (01 a 31) nos botões de seleção
+    const daySelect = document.getElementById("birth-day");
+    for (let i = 1; i <= 31; i++) {
+        daySelect.options[daySelect.options.length] = new Option(i.toString().padStart(2, '0'), i);
+    }
 
+    // Gerar Meses (Janeiro a Dezembro) nos botões de seleção
+    const monthSelect = document.getElementById("birth-month");
+    const months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+    months.forEach((m, idx) => {
+        monthSelect.options[monthSelect.options.length] = new Option(m, idx + 1);
+    });
+
+    // Gerar Anos (2026 até 1920) nos botões de seleção
+    const yearSelect = document.getElementById("birth-year");
+    for (let i = 2026; i >= 1920; i--) {
+        yearSelect.options[yearSelect.options.length] = new Option(i, i);
+    }
+
+    // Gatilho para abrir o Painel Admin através do link oculto do Rodapé
+    document.getElementById("link-admin-footer").addEventListener("click", (e) => {
+        e.preventDefault();
+        document.getElementById("admin-modal").classList.remove("hidden");
+    });
     // Evento do Formulário Principal
     document.getElementById("calc-form").addEventListener("submit", handleFormSubmit);
     

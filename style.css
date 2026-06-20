@@ -41,3 +41,29 @@ body {
     max-width: 400px; 
     margin-top: 20px; 
 }
+/* ... (todo o seu código atual) ... */
+
+/* Modais e Paywall */
+.modal { 
+    /* ... seu código atual ... */
+}
+
+/* --- COLE AQUI O AJUSTE QUE TE PASSEI --- */
+.plan-card.featured {
+    border: 2px solid var(--accent-gold);
+    box-shadow: 0 0 20px rgba(246, 173, 85, 0.3);
+    transform: scale(1.05);
+}
+
+.plan-card.featured .btn-plan {
+    background: var(--accent-gold);
+    color: #000;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+/* ---------------------------------------- */
+
+/* Rodapé com Links Institucionais */
+.site-footer {
+    /* ... restante do seu código ... */
+}

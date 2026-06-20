@@ -7,25 +7,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <!-- Banner Superior -->
-    <header class="banner-topo">
-        <img src="banner-topo.jpg" alt="Banner Topo">
-    </header>
-
-    <!-- Contador Global -->
+    <header class="banner-topo"><img src="banner-topo.jpg" alt="Banner"></header>
+    
     <div class="contador-global">
         <span id="visit-count">0</span>
         <span class="label">Cálculos realizados</span>
     </div>
 
-    <!-- Painel Principal com Logo Inserida -->
-    <div class="main-panel">
-        <div class="logo-box">
-            <img src="logo.png" alt="Calcule Sorte" class="logo-img">
-        </div>
+    <div class="main-container">
+        <div class="logo-box"><img src="logo.png" alt="Logo"></div>
         <h1 class="main-title">Análise Matemática</h1>
-        
         <form id="calc-form">
             <input type="text" id="user-name" placeholder="Nome Completo" required>
             <input type="tel" id="user-phone" placeholder="WhatsApp" required>
@@ -39,21 +30,15 @@
         </form>
     </div>
 
-    <!-- Área de Ícones e Banner de Ação (Acompanham a página) -->
     <div class="footer-section">
         <div class="icons-row">
             <div>🍀<br>Números</div><div>💰<br>Prosperidade</div><div>❤️<br>Amor</div><div>🚀<br>Sucesso</div><div>📅<br>Dia Fav.</div>
         </div>
-        <div class="banner-rodape">
-            <img src="banner-rodape.jpg" alt="Banner Ação">
-        </div>
+        <div class="banner-rodape"><img src="banner-rodape.jpg" alt="Banner Ação"></div>
+        <footer class="site-footer">
+            <a href="termos.html">Termos de Uso</a> | <a href="privacidade.html">Privacidade</a>
+            <br><a href="admin.html" class="admin-link">⚙️ Painel Admin</a>
+        </footer>
     </div>
-
-    <footer class="site-footer">
-        <a href="termos.html">Termos de Uso</a> | <a href="privacidade.html">Privacidade</a>
-        <br><a href="admin.html" class="admin-link">⚙️ Painel Admin</a>
-    </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>

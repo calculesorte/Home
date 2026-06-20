@@ -15,7 +15,11 @@
     </div>
 
     <div class="main-panel">
-        <header>
+        
+        <header class="main-header">
+            <div class="logo-wrapper">
+                <img src="logo.png" alt="Calcule Sorte" class="site-logo" onerror="this.style.display='none';">
+            </div>
             <h1>Calcule Sorte</h1>
             <p>Análise Matemática para a Mega-Sena</p>
             <div class="visitor-counter">Visualizações hoje: <span id="counter-val">0</span></div>
@@ -53,7 +57,7 @@
             <section id="result-section" class="hidden">
                 <h2>Seus Números Calculados</h2>
                 <div id="numbers-display" class="numbers-grid"></div>
-                <button id="btn-retry" class="btn-secondary">Calcular Novamente (<span id="attempts-left">5</span> tentativas restantes)</button>
+                <button id="btn-retry" class="btn-secondary">← Voltar e Calcular Novamente (<span id="attempts-left">5</span> restantes)</button>
             </section>
         </main>
     </div>

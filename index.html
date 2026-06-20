@@ -8,6 +8,13 @@
 </head>
 <body>
 
+    <div class="social-proof-counter">
+        <span class="icon-users">👥</span>
+        <span class="count-text">Mais de</span>
+        <span class="count-number highlight">12.847</span>
+        <span class="count-text">cálculos realizados</span>
+    </div>
+
     <div class="logo-outer">
         <img src="logo.png" alt="Calcule Sorte" class="logo-highlight">
     </div>
@@ -28,14 +35,26 @@
                     <label for="user-phone">WhatsApp:</label>
                     <input type="tel" id="user-phone" required placeholder="(11) 99999-9999">
                 </div>
-                <!-- Campos restaurados -->
                 <div class="input-group-row">
                     <div><label>Dia:</label><select id="birth-day" required><option value="">Dia</option></select></div>
                     <div><label>Mês:</label><select id="birth-month" required><option value="">Mês</option></select></div>
                     <div><label>Ano:</label><select id="birth-year" required><option value="">Ano</option></select></div>
                 </div>
-                <button type="submit" class="btn-glow">⚡ CALCULAR MINHA SORTE</button>
+                <button type="submit" class="btn-glow-blue">⚡ CALCULAR MINHA SORTE</button>
             </form>
+
+            <div class="plans-container">
+                <a href="#" class="btn-plan-gold">
+                    <span class="icon-crown">👑</span>
+                    <span class="plan-title">ASSINAR PLANO BÁSICO</span>
+                    <span class="plan-price">R$ 5,00/mês</span>
+                </a>
+                <a href="#" class="btn-plan-gold featured">
+                    <span class="icon-crown">👑</span>
+                    <span class="plan-title">ASSINAR PLANO VIP</span>
+                    <span class="plan-price">R$ 9,90/mês</span>
+                </a>
+            </div>
         </main>
     </div>
 
